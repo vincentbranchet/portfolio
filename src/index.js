@@ -16,18 +16,58 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+
+    MenuStore.on("buttonSwitch", () => {
+      this.setState({
+        menuButtons: MenuStore.getAll(),
+        activeCategory: this.getActiveCategory(),
+      });
+    });
+  }
+
+  getActiveCategory() {
+    const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
+    let activeCategory = [];
+
+    menuButtons.forEach(btn => {
+      if(btn.category != null && btn.isSelected === true) {
+        activeCategory.push(btn.category);
+      }
+    });
+    
+    return activeCategory;
+  }
+
+  getActiveButton() {
+    const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
+    let activeButton = [];
+
+    menuButtons.forEach(btn => {
+      if(btn.isSelected === true) {
+        activeButton.push(btn);
+      }
+    });
+
+    return activeButton;
+  }
+
   routePage() {
-    if(this.state.activePage === "projects") {
+    const activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
+    const projects = this.state.projects.slice(0, this.state.projects.length);
+    const activeButton = this.getActiveButton();
+
+    if(activeCategory.length > 0) {
       return (
         <ProjectPage
-          category={this.state.activeCategory}
-          projects={this.state.projects}
+          category={activeCategory}
+          projects={projects}
       />);
     }
-    else if(this.state.activePage === "info") {
+    else if(activeButton.length === 1 && activeButton[0].id === 1) {
       return <InfoPage />
     }
-    else if(this.state.activePage === "contact") {
+    else if(activeButton.length === 1 && activeButton[0].id === 2) {
       return <ContactPage />
     }
     else {
@@ -35,75 +75,22 @@ class App extends React.Component {
     }
   }
 
-  handleClickOnMenuButton(id, newPage, newCategory) {
-    let activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
-    let menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
-    let clickedButton = menuButtons.find((btn) => btn.id === id);
-    let contactBtn = menuButtons.find((btn) => btn.id === 2);
-    let infoBtn = menuButtons.find((btn) => btn.id === 1);
-    let categoryButtons = menuButtons.slice(2);
+  handleClickOnMenuButton(id) {
 
-    if(newPage === "projects") {
-      const requestedCat = activeCategory.find((cat) => cat === newCategory);
-
-      if(requestedCat) { // if requested category is active, deactivate it
-        activeCategory.splice(activeCategory.indexOf(requestedCat), 1);
-
-        this.setState({
-          activeCategory: activeCategory,
-        });
-      }
-      else { // if requested category is not active, activate it
-        activeCategory.push(newCategory);
-
-        this.setState({
-          activeCategory: activeCategory,
-        });
-      }
-
-      this.setState({
-        activePage: "projects",
-      });
-      
-      infoBtn.isSelected = false;
-      contactBtn.isSelected = false;
-    }
-    else if(newPage === "info" && this.state.activePage != "info") {
-      this.setState({
-        activePage: "info",
-        activeCategory: [],
-      });
-
-      contactBtn.isSelected = false;
-
-      categoryButtons.forEach(btn => btn.isSelected = false);
-    }
-    else if(newPage === "contact"  && this.state.activePage != "contact") {
-      this.setState({
-        activePage: "contact",
-        activeCategory: [],
-      });
-
-      infoBtn.isSelected = false;
-
-      categoryButtons.forEach(btn => btn.isSelected = false);
-    }
-    else {
-      // error : requested page unknown
-    }
-
-    clickedButton.isSelected = !clickedButton.isSelected;
+    MenuStore.toggleButton(id);
   }
 
   render() {
+    const activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
+    const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
     const page = this.routePage();
 
     return (
       <div className="mainWrapper">
         <Menu 
-          onClick={(id, page, cat) => this.handleClickOnMenuButton(id, page, cat)}
-          category={this.state.activeCategory}
-          buttons={this.state.menuButtons}
+          onClick={(id) => this.handleClickOnMenuButton(id)}
+          category={activeCategory}
+          buttons={menuButtons}
         />
         <div className="pageWrapper">
           {page}
@@ -119,19 +106,19 @@ class Menu extends React.Component {
     let buttons = [];
 
     buttons.push(<button className="menuButton menuInfoButton" onClick={
-      () => this.props.onClick(this.props.buttons[0].id, "info")
+      () => this.props.onClick(this.props.buttons[0].id)
     }>{this.props.buttons[0].text + " /" + this.props.buttons[0].isSelected}</button>);
     buttons.push(<button className="menuButton menuContactButton" onClick={
-      () => this.props.onClick(this.props.buttons[1].id, "contact")
+      () => this.props.onClick(this.props.buttons[1].id)
     }>{this.props.buttons[1].text + " /" + this.props.buttons[1].isSelected}</button>);
     buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[2].id, "projects", this.props.buttons[2].category)
+      () => this.props.onClick(this.props.buttons[2].id)
     }>{this.props.buttons[2].text + " /" + this.props.buttons[2].isSelected}</button>);
     buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[3].id, "projects", this.props.buttons[3].category)
+      () => this.props.onClick(this.props.buttons[3].id)
     }>{this.props.buttons[3].text + " /" + this.props.buttons[3].isSelected}</button>);
     buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[4].id, "projects", this.props.buttons[4].category)
+      () => this.props.onClick(this.props.buttons[4].id)
     }>{this.props.buttons[4].text + " /" + this.props.buttons[4].isSelected}</button>);    
   
     return buttons;

@@ -44,6 +44,37 @@ class MenuStore extends EventEmitter {
         ];
     }
 
+    toggleButton(id) {
+        let clickedButton = this.buttons.find((btns) => btns.id === id);
+        let contactBtn = this.buttons.find((btn) => btn.id === 2);
+        let infoBtn = this.buttons.find((btn) => btn.id === 1);
+        let categoryButtons = this.buttons.slice(2);
+
+        if(id === 1 && infoBtn.isSelected === false) {
+        // if user clicks to activate info button
+            infoBtn.isSelected = true;
+            contactBtn.isSelected = false;
+            categoryButtons.forEach((btn) => btn.isSelected = false);
+        }
+        else if(id === 2 && contactBtn.isSelected === false) {
+        // if user clicks to activate contact button
+            contactBtn.isSelected = true;
+            infoBtn.isSelected = false;
+            categoryButtons.forEach((btn) => btn.isSelected = false);
+        }
+        else if(id === 3 || id === 4 || id === 5) {
+        // if user clicks to switch any category button
+            infoBtn.isSelected = false;
+            contactBtn.isSelected = false;
+            clickedButton.isSelected = !clickedButton.isSelected;
+        }
+        else {
+        // error
+        }
+
+        this.emit("buttonSwitch");
+    }
+
     getAll() {
         return this.buttons;
     }
