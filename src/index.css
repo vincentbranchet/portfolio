@@ -16,6 +16,13 @@
     --bg-third-category: #aacdbe;
 }
 
+<<<<<<< HEAD
+=======
+button {
+    background-color: var(--bg-main);
+}
+
+>>>>>>> d6c7583c4659e5925d8e007706ff615f20905009
 html, body, #root, .mainWrapper {
     width: 100%;
     height: 100%;
@@ -27,14 +34,22 @@ html, body, #root, .mainWrapper {
 }
 
 .menuWrapper {
+<<<<<<< HEAD
     position: fixed;
     background-color: var(--bg-main);
     transition: width 200ms ease;
 }
 
 .menuList {
+=======
+    height: 100vh;
+    width: 5rem;
+    position: fixed;
+>>>>>>> d6c7583c4659e5925d8e007706ff615f20905009
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main);
 }
 
 .menuButton {
@@ -75,6 +90,7 @@ img {
 .pageWrapper {
     margin-left: 5rem;
     height: 100vh;
+<<<<<<< HEAD
 }
 
 /* Small screens */
@@ -113,4 +129,6 @@ img {
     .menuWrapper:hover .menuButtonText {
         display: block;
     }
+=======
+>>>>>>> d6c7583c4659e5925d8e007706ff615f20905009
 }
