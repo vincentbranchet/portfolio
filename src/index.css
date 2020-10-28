@@ -8,6 +8,18 @@
     overflow: hidden;
 }
 
+:root {
+    font-size: 16px;
+    --bg-main: #ea907a;
+    --bg-first-category: #fbc687;
+    --bg-second-category: #f4f7c5;
+    --bg-third-category: #aacdbe;
+}
+
+button {
+    background-color: var(--bg-main);
+}
+
 html, body, #root, .mainWrapper {
     width: 100%;
     height: 100%;
@@ -19,13 +31,16 @@ html, body, #root, .mainWrapper {
 }
 
 .menuWrapper {
-    height: 100%;
-    width: 20%;
+    height: 100vh;
+    width: 5rem;
+    position: fixed;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main);
 }
 
 .pageWrapper {
-    height: 100%;
-    width: 80%;
+    margin-left: 5rem;
+    height: 100vh;
 }
