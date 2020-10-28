@@ -105,21 +105,36 @@ class Menu extends React.Component {
   renderCategoryButtons() {
     let buttons = [];
 
-    buttons.push(<button className="menuButton menuInfoButton" onClick={
-      () => this.props.onClick(this.props.buttons[0].id)
-    }>{this.props.buttons[0].text + " /" + this.props.buttons[0].isSelected}</button>);
-    buttons.push(<button className="menuButton menuContactButton" onClick={
-      () => this.props.onClick(this.props.buttons[1].id)
-    }>{this.props.buttons[1].text + " /" + this.props.buttons[1].isSelected}</button>);
-    buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[2].id)
-    }>{this.props.buttons[2].text + " /" + this.props.buttons[2].isSelected}</button>);
-    buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[3].id)
-    }>{this.props.buttons[3].text + " /" + this.props.buttons[3].isSelected}</button>);
-    buttons.push(<button className="menuButton menuProjectsButton" onClick={
-      () => this.props.onClick(this.props.buttons[4].id)
-    }>{this.props.buttons[4].text + " /" + this.props.buttons[4].isSelected}</button>);    
+    buttons.push(
+      <li className="menuButton menuInfoButton" onClick={() => this.props.onClick(this.props.buttons[0].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/profile-user.png`} />
+        <span className ="menuButtonText">{this.props.buttons[0].text}</span>
+      </li>
+    );
+    buttons.push(
+      <li className="menuButton menuContactButton" onClick={() => this.props.onClick(this.props.buttons[1].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/mail.png`} />
+        <span className ="menuButtonText">{this.props.buttons[1].text}</span>
+      </li>
+    );
+    buttons.push(
+      <li className="menuButton menuWebButton" onClick={() => this.props.onClick(this.props.buttons[2].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/coding.png`} />
+        <span className ="menuButtonText">{this.props.buttons[2].text}</span>
+      </li>
+    );
+    buttons.push(
+      <li className="menuButton menuGamesButton" onClick={() => this.props.onClick(this.props.buttons[3].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/game-controller.png`} />
+        <span className ="menuButtonText">{this.props.buttons[3].text}</span>
+      </li>
+    );
+    buttons.push(
+      <li className="menuButton menuLitButton" onClick={() => this.props.onClick(this.props.buttons[4].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/quill.png`} />
+        <span className ="menuButtonText">{this.props.buttons[4].text}</span>
+      </li>
+    );    
   
     return buttons;
   }
@@ -128,9 +143,11 @@ class Menu extends React.Component {
     const buttons = this.renderCategoryButtons();
 
     return (
-      <div className="menuWrapper">
-        {buttons}
-      </div>
+      <nav className="menuWrapper">
+        <ul className="menuList">
+          {buttons}
+        </ul>
+      </nav>
     );
   }
 }
