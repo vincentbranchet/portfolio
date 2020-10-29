@@ -106,35 +106,35 @@ class Menu extends React.Component {
     let buttons = [];
 
     buttons.push(
-      <li className="menuButton menuInfoButton" onClick={() => this.props.onClick(this.props.buttons[0].id)}>
+      <li className={`button menuButton menuInfoButton ${this.props.buttons[0].isSelected ? "selected" : "unselected"}`} onClick={() => this.props.onClick(this.props.buttons[0].id)}>
         <img src={`${process.env.PUBLIC_URL}/assets/img/profile-user.png`} />
         <span className ="menuButtonText">{this.props.buttons[0].text}</span>
       </li>
     );
     buttons.push(
-      <li className="menuButton menuContactButton" onClick={() => this.props.onClick(this.props.buttons[1].id)}>
+      <li className={`button menuButton menuContactButton ${this.props.buttons[1].isSelected ? "selected" : "unselected"}`} onClick={() => this.props.onClick(this.props.buttons[1].id)}>
         <img src={`${process.env.PUBLIC_URL}/assets/img/mail.png`} />
         <span className ="menuButtonText">{this.props.buttons[1].text}</span>
       </li>
     );
     buttons.push(
-      <li className="menuButton menuWebButton" onClick={() => this.props.onClick(this.props.buttons[2].id)}>
+      <li className={`button menuButton menuWebButton ${this.props.buttons[2].isSelected ? "selected" : "unselected"}`} onClick={() => this.props.onClick(this.props.buttons[2].id)}>
         <img src={`${process.env.PUBLIC_URL}/assets/img/coding.png`} />
         <span className ="menuButtonText">{this.props.buttons[2].text}</span>
       </li>
     );
     buttons.push(
-      <li className="menuButton menuGamesButton" onClick={() => this.props.onClick(this.props.buttons[3].id)}>
-        <img src={`${process.env.PUBLIC_URL}/assets/img/game-controller.png`} />
+      <li className={`button menuButton menuGamesButton ${this.props.buttons[3].isSelected ? "selected" : "unselected"}`} onClick={() => this.props.onClick(this.props.buttons[3].id)}>
+        <img src={`${process.env.PUBLIC_URL}/assets/img/gamepad.png`} />
         <span className ="menuButtonText">{this.props.buttons[3].text}</span>
       </li>
     );
     buttons.push(
-      <li className="menuButton menuLitButton" onClick={() => this.props.onClick(this.props.buttons[4].id)}>
+      <li className={`button menuButton menuLitButton ${this.props.buttons[4].isSelected ? "selected" : "unselected"}`} onClick={() => this.props.onClick(this.props.buttons[4].id)}>
         <img src={`${process.env.PUBLIC_URL}/assets/img/quill.png`} />
         <span className ="menuButtonText">{this.props.buttons[4].text}</span>
       </li>
-    );    
+    );
   
     return buttons;
   }

@@ -21,6 +21,10 @@ html, body, #root, .mainWrapper {
     height: 100%;
 }
 
+.button {
+    cursor: pointer;
+}
+
 .mainWrapper {
     display: flex;
     flex-direction: row;
@@ -43,23 +47,26 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     height: 5rem;
-    filter: grayscale(100%) opacity(0.3);
     transition: 200ms;
 }
 
-.menuInfoButton:hover {
+.unselected.menuButton {
+    filter: grayscale(100%) opacity(0.3);
+}
+
+.selected.menuInfoButton {
     filter: grayscale(0%) opacity(1);
 }
-.menuContactButton:hover {
+.selected.menuContactButton {
     filter: grayscale(0%) opacity(1);
 }
-.menuWebButton:hover {
+.selected.menuWebButton {
     filter: grayscale(0%) opacity(1) invert(100%) sepia(31%) saturate(5204%) hue-rotate(303deg) brightness(106%) contrast(97%);
 }
-.menuGamesButton:hover {
+.selected.menuGamesButton {
     filter: grayscale(0%) opacity(1) invert(94%) sepia(16%) saturate(485%) hue-rotate(15deg) brightness(104%) contrast(94%);
 }
-.menuLitButton:hover {
+.selected.menuLitButton {
     filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
 }
 
@@ -115,4 +122,24 @@ img {
     .menuWrapper:hover .menuButtonText {
         display: block;
     }
+}
+
+@media (hover: hover) {
+    
+    .menuInfoButton:hover {
+        filter: grayscale(0%) opacity(1);
+    }
+    .menuContactButton:hover {
+        filter: grayscale(0%) opacity(1);
+    }
+    .menuWebButton:hover {
+        filter: grayscale(0%) opacity(1) invert(100%) sepia(31%) saturate(5204%) hue-rotate(303deg) brightness(106%) contrast(97%);
+    }
+    .menuGamesButton:hover {
+        filter: grayscale(0%) opacity(1) invert(94%) sepia(16%) saturate(485%) hue-rotate(15deg) brightness(104%) contrast(94%);
+    }
+    .menuLitButton:hover {
+        filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
+    }
+
 }
