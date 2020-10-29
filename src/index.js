@@ -18,6 +18,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    ProjectStore.on("projectSwitch", () => {
+      this.setState({
+        projects: ProjectStore.getAll(),
+      });
+    });
 
     MenuStore.on("buttonSwitch", () => {
       this.setState({
@@ -63,6 +68,7 @@ class App extends React.Component {
         <ProjectPage
           category={activeCategory}
           projects={projects}
+          onClick={(id) => this.handleClickOnProjectButton(id)}
       />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 1) {
@@ -79,6 +85,11 @@ class App extends React.Component {
   handleClickOnMenuButton(id) {
 
     MenuStore.toggleButton(id);
+  }
+
+  handleClickOnProjectButton(id) {
+
+    ProjectStore.toggleProject(id);
   }
 
   render() {
@@ -171,7 +182,9 @@ class ProjectPage extends React.Component {
               desc={proj.desc}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
+              isSelected={proj.isSelected}
               activeWith="primary"
+              onClick={(id) => this.props.onClick(id)}
             />
           );
         }
@@ -191,7 +204,9 @@ class ProjectPage extends React.Component {
               desc={proj.desc}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
-              activeWith="secondary" 
+              isSelected={proj.isSelected}
+              activeWith="secondary"
+              onClick={(id) => this.onClick(id)}
             />
           );
         }

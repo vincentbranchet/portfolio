@@ -11,6 +11,7 @@ class ProjectStore extends EventEmitter {
           desc: "jeu",
           primaryCategory: 2,
           secondaryCategory: null,
+          isSelected: false,
         },
         {
           id: 2,
@@ -18,6 +19,7 @@ class ProjectStore extends EventEmitter {
           desc: "appli web",
           primaryCategory: 1,
           secondaryCategory: null,      
+          isSelected: false,
         },
         {
           id: 3,
@@ -25,6 +27,7 @@ class ProjectStore extends EventEmitter {
           desc: "surtout appli web mais aussi jeu",
           primaryCategory: 1,
           secondaryCategory: 2,     
+          isSelected: false,
         },
         {
           id: 4,
@@ -32,8 +35,22 @@ class ProjectStore extends EventEmitter {
           desc: "nouvelle de fiction",
           primaryCategory: 3,
           secondaryCategory: null,       
+          isSelected: false,
         }
       ];
+    }
+
+    toggleProject(id) {
+      let clickedProject = this.projects.find((proj) => proj.id === id);
+      const indexOfClicked = this.projects.indexOf(clickedProject);
+      const projects = this.projects.slice(0, this.projects.length);
+      
+      projects.splice(indexOfClicked, 1);
+
+      projects.forEach((proj) => proj.isSelected = false);
+      clickedProject.isSelected = !clickedProject.isSelected;
+
+      this.emit("projectSwitch");
     }
   
     getAll() {
