@@ -30,6 +30,12 @@ html, body, #root, .mainWrapper {
     flex-direction: row;
 }
 
+.pageWrapper {
+    margin-left: 5rem;
+    height: 100vh;
+}
+
+/* Menu */
 .menuWrapper {
     position: fixed;
     background-color: var(--bg-main);
@@ -81,13 +87,59 @@ img {
 
 }
 
-.pageWrapper {
-    margin-left: 5rem;
-    height: 100vh;
+/* Projects  */
+.projectPageWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
 }
+
+.projectWrapper {
+    height: 25rem;
+    width: 25rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectTitle, .projectBanner, .projectContent, .projectLinkes {
+    width: 100%;
+}
+
+.projectTitle {
+    height: 5rem;
+}
+
+.projectBanner {
+    height: 20rem;
+}
+
+.projectContent {
+    height: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+.projectButton {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: gray;
+}
+
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
+    .pageWrapper {
+        margin-bottom: 5rem;
+        height: auto;
+    }
+
     .menuWrapper {
         bottom: 0;
         width: 100vw;
@@ -141,5 +193,4 @@ img {
     .menuLitButton:hover {
         filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
     }
-
 }

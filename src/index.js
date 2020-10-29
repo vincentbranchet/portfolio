@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Project from './components/Project.js';
 import ProjectStore from './stores/ProjectStore.js';
 import MenuStore from './stores/MenuStore.js';
 
@@ -162,8 +163,17 @@ class ProjectPage extends React.Component {
     for(let i of category) {
       projects.forEach(proj => {
         if(i === proj.primaryCategory) {
-          selected.push(proj);
-          proj.activeWith = "primary";
+          selected.push(
+            <Project
+              key={proj.id}
+              id={proj.id}
+              title={proj.title}
+              desc={proj.desc}
+              primaryCategory={proj.primaryCategory}
+              secondaryCategory={proj.secondaryCategory}
+              activeWith="primary"
+            />
+          );
         }
       });
     }
@@ -171,10 +181,19 @@ class ProjectPage extends React.Component {
     // then, push all projects that match selected category with their secondary category & aren't already selected
     for(let i of category) {
       projects.forEach(proj => {
-        const isSelected = selected.find((project) => project.id === proj.id);
+        const isSelected = selected.find((project) => project.props.id == proj.id);
         if(i === proj.secondaryCategory && typeof isSelected === "undefined") {
-          selected.push(proj);
-          proj.activeWith = "secondary";
+          selected.push(
+            <Project
+              key={proj.id}
+              id={proj.id}
+              title={proj.title}
+              desc={proj.desc}
+              primaryCategory={proj.primaryCategory}
+              secondaryCategory={proj.secondaryCategory}
+              activeWith="secondary" 
+            />
+          );
         }
       });
     }
@@ -183,37 +202,8 @@ class ProjectPage extends React.Component {
     return selected;
   }
 
-  fetchCategory(nb) {
-    if(nb === 1) {
-      return "web";
-    }
-    else if(nb === 2) {
-      return "games";
-    }
-    else if(nb === 3) {
-      return "literature";
-    }
-    else {
-      return "unknown category";
-    }
-  }
-
   render() {
-    const selected = this.fetchSelected();
-    let projects = [];
-
-    selected.forEach(proj => {
-      let projCategory = "";
-
-      if(proj.activeWith === "primary") {
-        projCategory = this.fetchCategory(proj.primaryCategory);
-      }
-      else if(proj.activeWith === "secondary") {
-        projCategory = this.fetchCategory(proj.secondaryCategory);
-      }
-
-      projects.push(<div className="projectWrapper" key={proj.id}>{projCategory + ": " + proj.desc}</div>);
-    });
+    const projects = this.fetchSelected();
 
     return (
       <div className="projectPageWrapper">{projects}</div>
