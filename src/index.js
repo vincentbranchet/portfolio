@@ -119,7 +119,7 @@ class App extends React.Component {
           buttons={menuButtons}
         />
         <div className="pageWrapper">
-    <span>{this.state.screenHeight + " " + this.state.screenWidth}</span>
+    <span id="dimensions">{this.state.screenHeight + " " + this.state.screenWidth}</span>
           {page}
         </div>
       </div>

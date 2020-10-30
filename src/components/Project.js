@@ -30,7 +30,9 @@ class Project extends React.Component {
                 <div className={`projectLinks ${isSelected ? "selected" : "unselected"}`}>
 
                 </div>
-                <div className="projectButton" onClick={() => this.props.onClick(this.props.id)}></div>
+                <div className={`projectButton category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
+                    <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
+                </div>
             </div>
         );
     }
