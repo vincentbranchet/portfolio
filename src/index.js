@@ -14,10 +14,23 @@ class App extends React.Component {
       activeCategory: [], // 1 : web || 2 : games || 3 : literature
       projects: ProjectStore.getAll(),
       menuButtons: MenuStore.getAll(),
+      screenWidth: 0,
+      screenHeight: 0,
     }
   }
 
+  updateScreenDimensions() {
+    this.setState({
+      screenWidth: window.innerWidth,
+      screenHeight: window.innerHeight,
+    });
+  }
+
   componentDidMount() {
+    this.updateScreenDimensions();
+
+    window.addEventListener('resize', this.updateScreenDimensions.bind(this));
+
     ProjectStore.on("projectSwitch", () => {
       this.setState({
         projects: ProjectStore.getAll(),
@@ -68,6 +81,7 @@ class App extends React.Component {
         <ProjectPage
           category={activeCategory}
           projects={projects}
+          width={this.state.screenWidth}
           onClick={(id) => this.handleClickOnProjectButton(id)}
       />);
     }
@@ -105,6 +119,7 @@ class App extends React.Component {
           buttons={menuButtons}
         />
         <div className="pageWrapper">
+    <span>{this.state.screenHeight + " " + this.state.screenWidth}</span>
           {page}
         </div>
       </div>
@@ -164,6 +179,11 @@ class Menu extends React.Component {
   }
 }
 
+/* Grid column breaks :
+screenWidth >= 1500px : 3 columns
+screenWidth < 1500px : 2 columns 
+screenWidth < 1024px : 1 column
+*/
 class ProjectPage extends React.Component {
   fetchSelected() {
     const category = this.props.category;
@@ -173,6 +193,7 @@ class ProjectPage extends React.Component {
     // push all projects that match selected category with their primary category
     for(let i of category) {
       projects.forEach(proj => {
+
         if(i === proj.primaryCategory) {
           selected.push(
             <Project
