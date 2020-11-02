@@ -8,6 +8,7 @@ class Project extends React.Component {
     render() {
     const title = this.props.title;
     const desc = this.props.desc;
+    const imgName = this.props.img;
     const isSelected = this.props.isSelected;
     const isSmall = this.props.isSmall;
     const category = this.props.activeWith === "primary" ? this.props.primaryCategory : this.props.secondaryCategory;
@@ -18,7 +19,7 @@ class Project extends React.Component {
                     {title}
                 </div>
                 <div className="projectBanner">
-
+                    <img className="bannerImage" src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
                 </div>
                 <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
                     <div className="projectDesc">

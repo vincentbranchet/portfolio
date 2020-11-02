@@ -196,6 +196,7 @@ class ProjectPage extends React.Component {
               id={proj.id}
               title={proj.title}
               desc={proj.desc}
+              img={proj.img}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
               isSelected={proj.isSelected}
@@ -219,12 +220,13 @@ class ProjectPage extends React.Component {
               id={proj.id}
               title={proj.title}
               desc={proj.desc}
+              img={proj.img}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
               isSelected={proj.isSelected}
               isSmall={proj.isSmall}
               activeWith="secondary"
-              onClick={(id) => this.onClick(id)}
+              onClick={(id) => this.props.onClick(id)}
             />
           );
         }
