@@ -9,10 +9,11 @@ class Project extends React.Component {
     const title = this.props.title;
     const desc = this.props.desc;
     const isSelected = this.props.isSelected;
+    const isSmall = this.props.isSmall;
     const category = this.props.activeWith === "primary" ? this.props.primaryCategory : this.props.secondaryCategory;
     
         return(
-            <div className={`projectWrapper ${isSelected ? "selected" : "unselected"}`}>
+            <div className={`projectWrapper ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
                 <div className={`projectTitle category_${category}`}>
                     {title}
                 </div>

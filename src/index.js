@@ -179,11 +179,6 @@ class Menu extends React.Component {
   }
 }
 
-/* Grid column breaks :
-screenWidth >= 1500px : 3 columns
-screenWidth < 1500px : 2 columns 
-screenWidth < 1024px : 1 column
-*/
 class ProjectPage extends React.Component {
   fetchSelected() {
     const category = this.props.category;
@@ -204,6 +199,7 @@ class ProjectPage extends React.Component {
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
               isSelected={proj.isSelected}
+              isSmall={proj.isSmall}
               activeWith="primary"
               onClick={(id) => this.props.onClick(id)}
             />
@@ -226,6 +222,7 @@ class ProjectPage extends React.Component {
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
               isSelected={proj.isSelected}
+              isSmall={proj.isSmall}
               activeWith="secondary"
               onClick={(id) => this.onClick(id)}
             />

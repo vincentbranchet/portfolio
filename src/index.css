@@ -287,13 +287,22 @@ html, body, #root, .mainWrapper {
         height: 50rem;
         width: 50rem;
     }
-        
+
+    .projectWrapper.smallSize {
+        height: 15rem;
+        width: 15rem;
+    }
+
     .projectDesc, .projectFeats {
         width: 22rem;
     }
     
     .projectBanner {
         height: 20rem;
+    }
+
+    .projectWrapper.smallSize .projectBanner {
+        height: 10rem;
     }
 }
 

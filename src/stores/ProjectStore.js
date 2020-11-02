@@ -12,6 +12,7 @@ class ProjectStore extends EventEmitter {
           primaryCategory: 2,
           secondaryCategory: null,
           isSelected: false,
+          isSmall: false,
         },
         {
           id: 2,
@@ -20,6 +21,7 @@ class ProjectStore extends EventEmitter {
           primaryCategory: 1,
           secondaryCategory: null,      
           isSelected: false,
+          isSmall: false,
         },
         {
           id: 3,
@@ -28,6 +30,7 @@ class ProjectStore extends EventEmitter {
           primaryCategory: 1,
           secondaryCategory: 2,     
           isSelected: false,
+          isSmall: false,
         },
         {
           id: 4,
@@ -36,19 +39,35 @@ class ProjectStore extends EventEmitter {
           primaryCategory: 3,
           secondaryCategory: null,       
           isSelected: false,
+          isSmall: false,
         }
       ];
     }
 
+    /* 
+      Switchs one project from open to closed and closed to open, and when a project opens, shrinks every other project's size
+      Called each time the user clicks on a open/close project button
+    */
     toggleProject(id) {
       let clickedProject = this.projects.find((proj) => proj.id === id);
       const indexOfClicked = this.projects.indexOf(clickedProject);
-      const projects = this.projects.slice(0, this.projects.length);
+      let projects = this.projects.slice(0, this.projects.length);
       
       projects.splice(indexOfClicked, 1);
 
       projects.forEach((proj) => proj.isSelected = false);
+      
       clickedProject.isSelected = !clickedProject.isSelected;
+
+      projects.push(clickedProject);
+
+      projects.forEach((proj) => proj.isSmall = false);
+
+      if(clickedProject.isSelected === true) {
+        projects.forEach((proj) => {
+          if(proj.isSelected === false) proj.isSmall = true;
+        });
+      }
 
       this.emit("projectSwitch");
     }
