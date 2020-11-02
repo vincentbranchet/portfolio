@@ -16,6 +16,20 @@ class ProjectStore extends EventEmitter {
             "World building",
             "Game design"
           ],
+          links: [
+            {
+              text: "Newgrounds",
+              url: "https://www.newgrounds.com/portal/view/710414"
+            },
+            {
+              text: "Itch.io",
+              url: "https://gaze-team.itch.io/late-for-love"
+            },
+            {
+              text: "LD41",
+              url: "https://ldjam.com/events/ludum-dare/41/late-for-love"
+            }
+          ],
           img: "lateforlove.jpg",
           primaryCategory: 2,
           secondaryCategory: null,
@@ -26,7 +40,8 @@ class ProjectStore extends EventEmitter {
           id: 2,
           title: "projet 2",
           desc: "appli web",
-          feats: "",
+          feats: [],
+          links: [],
           img: "",
           primaryCategory: 1,
           secondaryCategory: null,      
@@ -37,7 +52,8 @@ class ProjectStore extends EventEmitter {
           id: 3,
           title: "projet 3",
           desc: "surtout appli web mais aussi jeu",
-          feats: "",
+          feats: [],
+          links: [],
           img: "",
           primaryCategory: 1,
           secondaryCategory: 2,     
@@ -48,7 +64,8 @@ class ProjectStore extends EventEmitter {
           id: 4,
           title: "projet 4",
           desc: "nouvelle de fiction",
-          feats: "",
+          feats: [],
+          links: [],
           img: "",
           primaryCategory: 3,
           secondaryCategory: null,       

@@ -161,7 +161,7 @@ html, body, #root, .mainWrapper {
 }
 
 .projectContent {
-    height: 20rem;
+    height: 19rem;
 }
 
 .projectContent.unselected {
@@ -190,14 +190,35 @@ html, body, #root, .mainWrapper {
 }
 
 .projectLinks {
-    height: 5rem;
+    height: 2.5rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .projectLinks.unselected {
     display: none;
 }
 .projectLinks.selected {
-    display: block;
+    display: flex;
+}
+
+.projectLinks a {
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    color: black;
+    border-radius: 0.5rem;
+}
+
+.projectLinks a.category_1 {
+    background-color: var(--bg-first-category);
+}
+.projectLinks a.category_2 {
+    background-color: var(--bg-second-category);
+}
+.projectLinks a.category_3 {
+    background-color: var(--bg-third-category);
 }
 
 .projectButton {
@@ -269,11 +290,11 @@ html, body, #root, .mainWrapper {
 
     .projectWrapper.selected {
         width: 20rem;
-        height: 50rem;
+        height: 70rem;
     }
 
     .projectContent.selected {
-        height: 50rem;
+        height: 49rem;
         flex-direction: column;
     }
 
@@ -283,6 +304,11 @@ html, body, #root, .mainWrapper {
 
     .projectDesc, .projectFeats {
         max-width: 90%;
+    }
+
+    .projectLinks a {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 }
 

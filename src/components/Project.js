@@ -18,14 +18,27 @@ class Project extends React.Component {
         return feats;
     }
 
+    renderLinks(array, cat) {
+        let links = [];
+
+        if(Array.isArray(array)) {
+            array.forEach((link) => links.push(
+                <a className={`projectLink category_${cat}`} href={`${link.url}`} target="_blank">{link.text}</a>
+            ));
+        }
+
+        return links;
+    }
+
     render() {
     const title = this.props.title;
     const desc = this.props.desc;
     const imgName = this.props.img;
     const isSelected = this.props.isSelected;
     const isSmall = this.props.isSmall;
-    const feats = this.renderFeats(this.props.feats);
     const category = this.props.activeWith === "primary" ? this.props.primaryCategory : this.props.secondaryCategory;
+    const feats = this.renderFeats(this.props.feats);
+    const links = this.renderLinks(this.props.links, category);
     
         return(
             <div className={`projectWrapper ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
@@ -44,7 +57,7 @@ class Project extends React.Component {
                     </ul>
                 </div>
                 <div className={`projectLinks ${isSelected ? "selected" : "unselected"}`}>
-
+                    {links}
                 </div>
                 <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
                     <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
