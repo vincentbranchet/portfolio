@@ -5,12 +5,26 @@ class Project extends React.Component {
         super(props);
     }
 
+    renderFeats(array) {
+        let feats = [];
+
+        if(Array.isArray(array)) {
+            array.forEach((feat) => feats.push(
+                <li className="projectFeat">
+                    <img src={`${process.env.PUBLIC_URL}/assets/img/check-mark.png`} />
+                    <span className="listTextWrapper">{feat}</span>
+                </li>));
+        }
+        return feats;
+    }
+
     render() {
     const title = this.props.title;
     const desc = this.props.desc;
     const imgName = this.props.img;
     const isSelected = this.props.isSelected;
     const isSmall = this.props.isSmall;
+    const feats = this.renderFeats(this.props.feats);
     const category = this.props.activeWith === "primary" ? this.props.primaryCategory : this.props.secondaryCategory;
     
         return(
@@ -25,14 +39,14 @@ class Project extends React.Component {
                     <div className="projectDesc">
                         {desc}
                     </div>
-                    <div className="projectFeats">
-
-                    </div>
+                    <ul className={`projectFeats category_${category}`}>
+                        {feats}
+                    </ul>
                 </div>
                 <div className={`projectLinks ${isSelected ? "selected" : "unselected"}`}>
 
                 </div>
-                <div className={`projectButton category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
+                <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
                     <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
                 </div>
             </div>

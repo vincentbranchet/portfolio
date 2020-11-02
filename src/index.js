@@ -196,6 +196,7 @@ class ProjectPage extends React.Component {
               id={proj.id}
               title={proj.title}
               desc={proj.desc}
+              feats={proj.feats}
               img={proj.img}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}
@@ -220,6 +221,7 @@ class ProjectPage extends React.Component {
               id={proj.id}
               title={proj.title}
               desc={proj.desc}
+              feats={proj.feats}
               img={proj.img}
               primaryCategory={proj.primaryCategory}
               secondaryCategory={proj.secondaryCategory}

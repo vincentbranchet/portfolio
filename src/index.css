@@ -5,7 +5,6 @@
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    overflow: hidden;
 }
 
 :root {
@@ -19,6 +18,7 @@
 html, body, #root, .mainWrapper {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .projectPageWrapper::-webkit-scrollbar{
@@ -148,6 +148,7 @@ html, body, #root, .mainWrapper {
 .projectBanner {
     background-color: #444444;
     position: relative;
+    overflow: hidden;
 }
 
 .bannerImage {
@@ -173,11 +174,19 @@ html, body, #root, .mainWrapper {
 }
 
 .projectDesc {
-
+    line-height: 1.5rem;
 }
 
-.projectFeats {
+.projectFeats li {
+    list-style: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 1rem 0;
+}
 
+.listTextWrapper {
+    margin-left: 1rem;
 }
 
 .projectLinks {
@@ -264,11 +273,16 @@ html, body, #root, .mainWrapper {
     }
 
     .projectContent.selected {
+        height: 50rem;
         flex-direction: column;
     }
 
     .projectBanner {
         height: 15rem;
+    }
+
+    .projectDesc, .projectFeats {
+        max-width: 90%;
     }
 }
 
@@ -303,8 +317,11 @@ html, body, #root, .mainWrapper {
         width: 15rem;
     }
 
-    .projectDesc, .projectFeats {
+    .projectDesc {
         width: 22rem;
+    }
+    .projectFeats {
+        max-width: 22rem;
     }
     
     .projectBanner {
