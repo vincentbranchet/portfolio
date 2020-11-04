@@ -1,5 +1,6 @@
 import React from 'react';
 import Paragraph from './Paragraph';
+import Link from './Link';
 
 class Project extends React.Component {
     constructor(props) {
@@ -24,7 +25,12 @@ class Project extends React.Component {
 
         if(Array.isArray(array)) {
             array.forEach((link) => links.push(
-                <a className={`projectLink category_${cat}`} href={`${link.url}`} target="_blank">{link.text}</a>
+                <Link 
+                 className={`projectLink category_${cat}`}
+                 href={`${link.url}`} 
+                 target="_blank"
+                 text={link.text}
+                />
             ));
         }
 

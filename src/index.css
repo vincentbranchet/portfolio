@@ -40,6 +40,12 @@ html, body, #root, .mainWrapper {
     cursor: pointer;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+
 .mainWrapper {
     display: flex;
     flex-direction: row;
@@ -209,20 +215,18 @@ html, body, #root, .mainWrapper {
     display: flex;
 }
 
-.projectLinks a {
-    text-decoration: none;
+.projectLink {
     padding: 0.5rem 2rem;
-    color: black;
     border-radius: 0.5rem;
 }
 
-.projectLinks a.category_1 {
+.projectLink.category_1 {
     background-color: var(--bg-first-category);
 }
-.projectLinks a.category_2 {
+.projectLink.category_2 {
     background-color: var(--bg-second-category);
 }
-.projectLinks a.category_3 {
+.projectLink.category_3 {
     background-color: var(--bg-third-category);
 }
 
