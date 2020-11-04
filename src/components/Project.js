@@ -1,4 +1,5 @@
 import React from 'react';
+import Paragraph from './Paragraph';
 
 class Project extends React.Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class Project extends React.Component {
                 </div>
                 <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
                     <div className="projectDesc">
-                        {desc}
+                        <Paragraph text={desc} />
                     </div>
                     <ul className={`projectFeats category_${category}`}>
                         {feats}
