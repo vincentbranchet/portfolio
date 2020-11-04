@@ -184,29 +184,15 @@ class ProjectPage extends React.Component {
     const category = this.props.category;
     const projects = this.props.projects.slice(0, this.props.projects.length);
     let selected = [];
+    let sorted = [];
+    let rendered = [];
 
     // push all projects that match selected category with their primary category
     for(let i of category) {
       projects.forEach(proj => {
-
         if(i === proj.primaryCategory) {
-          selected.push(
-            <Project
-              key={proj.id}
-              id={proj.id}
-              title={proj.title}
-              desc={proj.desc}
-              feats={proj.feats}
-              links={proj.links}
-              img={proj.img}
-              primaryCategory={proj.primaryCategory}
-              secondaryCategory={proj.secondaryCategory}
-              isSelected={proj.isSelected}
-              isSmall={proj.isSmall}
-              activeWith="primary"
-              onClick={(id) => this.props.onClick(id)}
-            />
-          );
+          proj.activeWith = "primary";
+          selected.push(proj);          
         }
       });
     }
@@ -214,31 +200,40 @@ class ProjectPage extends React.Component {
     // then, push all projects that match selected category with their secondary category & aren't already selected
     for(let i of category) {
       projects.forEach(proj => {
-        const isSelected = selected.find((project) => project.props.id == proj.id);
+        const isSelected = selected.find((project) => project.id == proj.id);
         if(i === proj.secondaryCategory && typeof isSelected === "undefined") {
-          selected.push(
-            <Project
-              key={proj.id}
-              id={proj.id}
-              title={proj.title}
-              desc={proj.desc}
-              feats={proj.feats}
-              links={proj.links}
-              img={proj.img}
-              primaryCategory={proj.primaryCategory}
-              secondaryCategory={proj.secondaryCategory}
-              isSelected={proj.isSelected}
-              isSmall={proj.isSmall}
-              activeWith="secondary"
-              onClick={(id) => this.props.onClick(id)}
-            />
-          );
+          proj.activeWith = "secondary";
+          selected.push(proj);
         }
       });
     }
 
+    // sort by score & return project components
+    sorted = selected.sort((a, b) => b.score - a.score);
+
+    sorted.forEach((proj) => {
+      rendered.push(
+        <Project
+        key={proj.id}
+        id={proj.id}
+        title={proj.title}
+        desc={proj.desc}
+        feats={proj.feats}
+        links={proj.links}
+        img={proj.img}
+        score={proj.score}
+        primaryCategory={proj.primaryCategory}
+        secondaryCategory={proj.secondaryCategory}
+        isSelected={proj.isSelected}
+        isSmall={proj.isSmall}
+        activeWith={proj.activeWith}
+        onClick={(id) => this.props.onClick(id)}
+        />
+      );
+    });
+
     // returned array has every project matching required categories activated for their primary category first
-    return selected;
+    return rendered;
   }
 
   render() {
