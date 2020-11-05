@@ -30,6 +30,15 @@ html, body, #root, .mainWrapper {
 .projectPageWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
 }
+.landingPageWrapper::-webkit-scrollbar {
+    width: 0.5rem;
+}
+.landingPageWrapper::-webkit-scrollbar-track {
+    background-color: white;
+}
+.landingPageWrapper::-webkit-scrollbar-thumb {
+    background-color: var(--bg-main);
+}
 
 #dimensions {
     position: absolute;
@@ -117,12 +126,25 @@ html, body, #root, .mainWrapper {
 .landingPageWrapper {
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
 }
 .landingPresentationWrapper {
     display: flex;
+    align-items: center;
+}
+.profilePicWrapper img {
+    border-radius: 50%;
+    width: 20rem;
 }
 .landingLinksWrapper {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.landingLink {
+    padding: 1rem 4rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-main);
 }
 
 /* Projects  */
@@ -304,6 +326,21 @@ html, body, #root, .mainWrapper {
         margin-left: 0;
     }
 
+    .landingPresentationWrapper {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 50rem;
+        padding: 0 5rem;
+    }
+
+    .landingLinksWrapper {
+        height: 7rem;
+    }
+
+    .landingPresentationWrapper img {
+        width: 15rem;
+    }
+
     .projectWrapper.unselected {
         height: 20rem;
         width: 20rem;
@@ -331,6 +368,10 @@ html, body, #root, .mainWrapper {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+
+    .landingLink {
+        padding: 0.5rem 2rem;
+    }
 }
 
 /* Large screens */
@@ -347,6 +388,15 @@ html, body, #root, .mainWrapper {
 
     .menuWrapper:hover .menuButtonText {
         display: block;
+    }
+
+    .landingPresentationWrapper {
+        height: 45rem;
+        justify-content: space-around;
+    }
+
+    .landingPresentationWrapper .paragraph {
+        max-width: 35%;
     }
 
     .projectWrapper.unselected {
