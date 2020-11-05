@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import ProjectStore from './stores/ProjectStore.js';
 import MenuStore from './stores/MenuStore.js';
+import TextContentStore from './stores/TextContentStore';
 import Menu from './components/Menu.js';
 import ProjectPage from './components/ProjectPage.js';
 import LandingPage from './components/LandingPage.js';
@@ -17,6 +18,7 @@ class App extends React.Component {
       activeCategory: [], // 1 : web || 2 : games || 3 : literature
       projects: ProjectStore.getAll(),
       menuButtons: MenuStore.getAll(),
+      texts: TextContentStore.getAll(),
       screenWidth: 0,
       screenHeight: 0,
     }
@@ -89,10 +91,10 @@ class App extends React.Component {
       />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 1) {
-      return <LandingPage />
+      return <LandingPage text={this.props.texts.landing} />
     }
     else if(activeButton.length === 1 && activeButton[0].id === 2) {
-      return <ContactPage />
+      return <ContactPage text={this.props.texts.landing} />
     }
     else {
       // error : wrong page state
