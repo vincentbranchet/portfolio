@@ -16,4 +16,6 @@ class TextContentStore extends React.Component {
     }
 }
 
-export default TextContentStore;
+const textContentStore = new TextContentStore;
+
+export default textContentStore;
