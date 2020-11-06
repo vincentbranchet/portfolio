@@ -1,4 +1,3 @@
-import { getAllByAltText } from '@testing-library/react';
 import React from 'react';
 
 class TextContentStore extends React.Component {
@@ -16,4 +15,6 @@ class TextContentStore extends React.Component {
     }
 }
 
-export default TextContentStore;
+const textContentStore = new TextContentStore;
+
+export default textContentStore;
