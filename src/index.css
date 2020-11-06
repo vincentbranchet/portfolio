@@ -113,6 +113,53 @@ html, body, #root, .mainWrapper {
     line-height: 1.5rem;
 }
 
+/* Contact */
+.contactPageWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.contactLinksWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.contactTextWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.webLinks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.otherLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.otherLink {
+    display: flex;
+    align-items: center;
+    padding: 2rem 3rem;
+    border: 2px black solid;
+    border-radius: 2rem;
+}
+.otherLink img {
+    width: 5rem;
+}
+.otherLink .paragraph {
+    margin-left: 2rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+
 /* Projects  */
 .projectPageWrapper {
     height: 100%;
@@ -292,6 +339,43 @@ html, body, #root, .mainWrapper {
         margin-left: 0;
     }
 
+    .contactPageWrapper {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .contactTextWrapper {
+        max-width: 80%;
+    }
+    .contactLinksWrapper {
+        height: 22rem;
+        justify-content: center;
+    }
+    .webLinks, .otherLinks {
+        width: 100%;
+    }
+    .contactLink img {
+        width: 6rem;
+    }
+    .otherLinks {
+        height: 12rem;
+    }
+    .otherLink {
+        width: 80%;
+        padding: 1rem 1.5rem;
+        border-radius: 1.2rem;
+    }
+    .otherLink img {
+        height: 2rem;
+        width: 2rem;
+    }
+    .otherLink .paragraph {
+        margin-left: 1rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        font-size: 1.2rem;
+    }
+
     .projectWrapper.unselected {
         height: 20rem;
         width: 20rem;
@@ -335,6 +419,25 @@ html, body, #root, .mainWrapper {
 
     .menuWrapper:hover .menuButtonText {
         display: block;
+    }
+
+    .contactTextWrapper .paragraph {
+        width: 60%;
+    }
+    .contactLink img {
+        width: 10rem;
+    }
+    .webLinks, .otherLinks {
+        width: 50rem;
+    }
+    .otherLinks {
+        height: 25rem;
+    }
+    .otherLink {
+        width: 60%;
+    }
+    .otherLink .paragraph {
+        font-size: 1.8rem;
     }
 
     .projectWrapper.unselected {
