@@ -96,7 +96,12 @@ class App extends React.Component {
       return <LandingPage text={this.state.texts.landing} />
     }
     else if(activeButton.length === 1 && activeButton[0].id === 2) {
-      return <ContactPage text={this.state.texts.landing} />
+      return (
+        <ContactPage 
+          text={this.state.texts.contact} 
+          links={this.state.links}
+        />
+      );
     }
     else {
       // error : wrong page state
