@@ -8,24 +8,28 @@
 }
 
 :root {
+    font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     --bg-main: #ea907a;
     --bg-first-category: #fbc687;
-    --bg-second-category: #f4f7c5;
-    --bg-third-category: #aacdbe;
+    --bg-second-category: #aacdbe;
+    --bg-third-category: #ffffff;
+    --bg-submain: #f4f7c5;
+    --bg-default: #444444;
 }
 
 html, body, #root, .mainWrapper {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-color: var(--bg-submain);
 }
 
 .projectPageWrapper::-webkit-scrollbar{
     width: 0.5rem;
 }
 .projectPageWrapper::-webkit-scrollbar-track {
-    background-color: white;
+    background-color: var(--bg-submain);
 }
 .projectPageWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
@@ -34,7 +38,7 @@ html, body, #root, .mainWrapper {
     width: 0.5rem;
 }
 .landingPageWrapper::-webkit-scrollbar-track {
-    background-color: white;
+    background-color: var(--bg-submain);
 }
 .landingPageWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
@@ -66,6 +70,11 @@ html, body, #root, .mainWrapper {
     width: 100vw;
 }
 
+.contactLink img {
+    background-color: whitesmoke;
+    border-radius: 50%;
+}
+
 /* Menu */
 .menuWrapper {
     position: fixed;
@@ -85,7 +94,6 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     height: 5rem;
-    transition: 200ms;
 }
 
 .unselected.menuButton {
@@ -93,24 +101,25 @@ html, body, #root, .mainWrapper {
 }
 
 .selected.menuInfoButton {
-    filter: grayscale(0%) opacity(1);
+    filter: grayscale(0%) opacity(0.9);
 }
 .selected.menuContactButton {
-    filter: grayscale(0%) opacity(1);
+    filter: grayscale(0%) opacity(0.9);
 }
 .selected.menuWebButton {
     filter: grayscale(0%) opacity(1) invert(100%) sepia(31%) saturate(5204%) hue-rotate(303deg) brightness(106%) contrast(97%);
 }
 .selected.menuGamesButton {
-    filter: grayscale(0%) opacity(1) invert(94%) sepia(16%) saturate(485%) hue-rotate(15deg) brightness(104%) contrast(94%);
+    filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
 }
 .selected.menuLitButton {
-    filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
+    filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
 }
 
 .menuButtonText {
     display: none;
     margin-left: 1rem;
+    font-weight: 900;
 }
 
 .menuButton img {
@@ -181,12 +190,11 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     padding: 2rem 3rem;
-    border: 2px black solid;
-    border-radius: 2rem;
+    border: 1px var(--bg-default) solid;
+    border-radius: 1rem;
+    background-color: whitesmoke;
 }
-.otherLink img {
-    width: 5rem;
-}
+
 .otherLink .paragraph {
     margin-left: 2rem;
     height: 5rem;
@@ -210,7 +218,6 @@ html, body, #root, .mainWrapper {
 }
 
 .projectWrapper {
-    border: 1px solid gray;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -218,8 +225,10 @@ html, body, #root, .mainWrapper {
     position: relative;
     overflow: visible;
     transition: 150ms ease;
+    border: 1px solid var(--bg-default);
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: white;
 }
-
 
 .projectTitle, .projectBanner, .projectContent, .projectLinks {
     width: 100%;
@@ -229,6 +238,8 @@ html, body, #root, .mainWrapper {
     height: 5rem;
     line-height: 5rem;
     text-align: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-bottom: 1px solid var(--bg-default);
 }
 
 .projectTitle.category_1 {
@@ -242,13 +253,14 @@ html, body, #root, .mainWrapper {
 }
 
 .projectBanner {
-    background-color: #444444;
+    background-color: var(--bg-default);
     position: relative;
     overflow: hidden;
 }
 
 .bannerImage {
     max-height: 100%;
+    max-width: 100%;
     width: auto;
     position: absolute;
     top: 50%;
@@ -308,7 +320,8 @@ html, body, #root, .mainWrapper {
     background-color: var(--bg-second-category);
 }
 .projectLink.category_3 {
-    background-color: var(--bg-third-category);
+    background-color: var(--bg-default);
+    color: whitesmoke;
 }
 
 .projectButton {
@@ -332,13 +345,13 @@ html, body, #root, .mainWrapper {
     border: 2px solid var(--bg-second-category);
 }
 .category_2 img {
-    filter: grayscale(0%) opacity(1) invert(94%) sepia(16%) saturate(485%) hue-rotate(15deg) brightness(104%) contrast(94%);
+    filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
 }
 .projectButton.category_3 {
-    border: 2px solid var(--bg-third-category);
+    border: 2px solid var(--bg-default);
 }
 .category_3 img {
-    filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
+    filter: invert(24%) sepia(98%) saturate(0%) hue-rotate(237deg) brightness(90%) contrast(96%);
 }
 
 .projectButton img {
@@ -360,6 +373,13 @@ html, body, #root, .mainWrapper {
         width: 100vw;
         height: 5rem;
     }
+    .menuList {
+        justify-content: space-around;
+    }
+    .menuButton img {
+        margin: 0.5rem;
+        width: 2.5rem;
+    }
 
     .menuList {
         flex-direction: row;
@@ -374,44 +394,51 @@ html, body, #root, .mainWrapper {
     }
 
     .landingPresentationWrapper {
+        height: 80%;
         flex-direction: column;
-        justify-content: space-around;
-        height: 50rem;
-        padding: 0 5rem;
+        justify-content: space-evenly;
+        padding: 0 1rem;
+    }
+    .landingPresentationWrapper .paragraph {
+        font-size: 0.8rem;
     }
 
     .landingLinksWrapper {
-        height: 7rem;
+        height: 20%;
     }
 
-    .landingPresentationWrapper img {
-        width: 15rem;
+    .profilePicWrapper {
+        display: flex;
+        justify-content: center;
     }
+    .profilePicWrapper img {
+        width: 40%;
+        margin-top: 1rem;
+    }
+
     .contactPageWrapper {
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
     }
     .contactTextWrapper {
-        max-width: 80%;
+        max-width: 90%;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
     }
     .contactLinksWrapper {
-        height: 22rem;
         justify-content: center;
     }
     .webLinks, .otherLinks {
         width: 100%;
     }
     .contactLink img {
-        width: 6rem;
-    }
-    .otherLinks {
-        height: 12rem;
+        width: 3rem;
     }
     .otherLink {
         width: 80%;
         padding: 1rem 1.5rem;
-        border-radius: 1.2rem;
+        margin: 0.5rem 0;
     }
     .otherLink img {
         height: 2rem;
@@ -420,8 +447,7 @@ html, body, #root, .mainWrapper {
     .otherLink .paragraph {
         margin-left: 1rem;
         height: 1.2rem;
-        line-height: 1.2rem;
-        font-size: 1.2rem;
+        line-height: 1rem;
     }
 
     .projectWrapper.unselected {
@@ -474,30 +500,47 @@ html, body, #root, .mainWrapper {
     }
 
     .landingPresentationWrapper {
-        height: 45rem;
+        width: 100%;
+        height: 60%;
         justify-content: space-around;
     }
 
     .landingPresentationWrapper .paragraph {
         max-width: 35%;
     }
+    .landingLinksWrapper {
+        height: 40%;
+    }
+    .contactPageWrapper {
+        justify-content: space-around;
+    }
     .contactTextWrapper .paragraph {
         width: 60%;
     }
-    .contactLink img {
-        width: 10rem;
+    .contactLinksWrapper {
+        width: 200%;
+        margin-left: 2rem;
     }
-    .webLinks, .otherLinks {
-        width: 50rem;
+    .contactLink img {
+        width: 8rem;
+    }
+    .webLinks {
+        width: 100%;
     }
     .otherLinks {
+        width: 100%;
         height: 25rem;
     }
     .otherLink {
-        width: 60%;
+        width: 70%;
+        max-width: 600px;
+        padding: 1rem 4rem 1rem 2rem;
+    }
+    .otherLink img {
+        width: 4rem;
     }
     .otherLink .paragraph {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
     }
 
     .projectWrapper.unselected {
@@ -534,18 +577,18 @@ html, body, #root, .mainWrapper {
 @media (hover: hover) {
     
     .menuInfoButton:hover {
-        filter: grayscale(0%) opacity(1);
+        filter: grayscale(0%) opacity(0.9);
     }
     .menuContactButton:hover {
-        filter: grayscale(0%) opacity(1);
+        filter: grayscale(0%) opacity(0.9);
     }
     .menuWebButton:hover {
         filter: grayscale(0%) opacity(1) invert(100%) sepia(31%) saturate(5204%) hue-rotate(303deg) brightness(106%) contrast(97%);
     }
     .menuGamesButton:hover {
-        filter: grayscale(0%) opacity(1) invert(94%) sepia(16%) saturate(485%) hue-rotate(15deg) brightness(104%) contrast(94%);
+        filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
     }
     .menuLitButton:hover {
-        filter: grayscale(0%) opacity(1) invert(89%) sepia(17%) saturate(284%) hue-rotate(102deg) brightness(86%) contrast(93%);
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
 }
