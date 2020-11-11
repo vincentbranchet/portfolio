@@ -93,7 +93,11 @@ class App extends React.Component {
       />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 1) {
-      return <LandingPage text={this.state.texts.landing} />
+      return (
+        <LandingPage 
+          text={this.state.texts.landing} 
+          links={this.state.links}
+        />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 2) {
       return (
@@ -131,7 +135,6 @@ class App extends React.Component {
           buttons={menuButtons}
         />
         <div className="pageWrapper">
-    <span id="dimensions">{this.state.screenHeight + " " + this.state.screenWidth}</span>
           {page}
         </div>
       </div>

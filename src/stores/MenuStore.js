@@ -9,14 +9,14 @@ class MenuStore extends EventEmitter {
             {
                 id: 1,
                 comp: <MenuButton />,
-                text: "Info",
+                text: "Présentation",
                 category: null,
                 isSelected: true,
             },
             {
                 id: 2,
                 comp: <MenuButton />,
-                text: "Contacts",
+                text: "Contact",
                 category: null,
                 isSelected: false,
             },
@@ -30,14 +30,14 @@ class MenuStore extends EventEmitter {
             {
                 id: 4,
                 comp: <MenuButton />,
-                text: "Games",
+                text: "Jeux",
                 category: 2,
                 isSelected: false,
             },
             {
                 id: 5,
                 comp: <MenuButton />,
-                text: "Literature",
+                text: "Textes",
                 category: 3,
                 isSelected: false,
             }

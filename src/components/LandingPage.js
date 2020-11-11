@@ -17,15 +17,15 @@ class LandingPage extends React.Component {
           <div className="landingLinksWrapper">
             <Link 
               className={"landingLink"}
-              href={""}
+              href={this.props.links.linkedIn}
               target={"_blank"}
-              text={"LinkedIn"}
+              text={<img src={`${process.env.PUBLIC_URL}/assets/img/linkedIn.png`} />}
             />
             <Link 
               className={"landingLink"}
-              href={""}
+              href={this.props.links.github}
               target={"_blank"}
-              text={"Github"}
+              text={<img src={`${process.env.PUBLIC_URL}/assets/img/github.png`} />}
             />
           </div>
         </div>
