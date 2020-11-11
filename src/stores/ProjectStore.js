@@ -34,8 +34,11 @@ class ProjectStore extends EventEmitter {
           score: 75,
           primaryCategory: 2,
           secondaryCategory: 3,
+          activeWith: null,
+          isShown: false,
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 2,
@@ -62,9 +65,12 @@ class ProjectStore extends EventEmitter {
           img: "",
           score: 100,
           primaryCategory: 1,
-          secondaryCategory: 2,      
+          secondaryCategory: 2,
+          activeWith: null,
+          isShown: false,     
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 3,
@@ -88,9 +94,12 @@ class ProjectStore extends EventEmitter {
           img: "slv.png",
           score: 50,
           primaryCategory: 1,
-          secondaryCategory: 2,     
+          secondaryCategory: 2,  
+          activeWith: null,
+          isShown: false,   
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 4,
@@ -111,9 +120,12 @@ class ProjectStore extends EventEmitter {
           img: "blog.png",
           score: 40,
           primaryCategory: 1,
-          secondaryCategory: null,       
+          secondaryCategory: null,   
+          activeWith: null,
+          isShown: false,    
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 5,
@@ -129,9 +141,12 @@ class ProjectStore extends EventEmitter {
           img: "velib.png",
           score: 30,
           primaryCategory: 1,
-          secondaryCategory: null,       
+          secondaryCategory: null,    
+          activeWith: null,
+          isShown: false,   
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 6,
@@ -148,9 +163,12 @@ class ProjectStore extends EventEmitter {
           img: "mapremiere.png",
           score: 60,
           primaryCategory: 2,
-          secondaryCategory: 3,       
+          secondaryCategory: 3,     
+          activeWith: null,
+          isShown: false,  
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 7,
@@ -172,9 +190,12 @@ class ProjectStore extends EventEmitter {
           img: "rainbow.png",
           score: 30,
           primaryCategory: 2,
-          secondaryCategory: 3,       
+          secondaryCategory: 3,    
+          activeWith: null,
+          isShown: false,   
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 8,
@@ -194,9 +215,12 @@ class ProjectStore extends EventEmitter {
           img: "kervegan.png",
           score: 40,
           primaryCategory: 3,
-          secondaryCategory: null,       
+          secondaryCategory: null,  
+          activeWith: null,
+          isShown: false,     
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 9,
@@ -216,9 +240,12 @@ class ProjectStore extends EventEmitter {
           img: "deuxiemesoleil.png",
           score: 50,
           primaryCategory: 3,
-          secondaryCategory: null,       
+          secondaryCategory: null,   
+          activeWith: null,
+          isShown: false,    
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 10,
@@ -239,9 +266,12 @@ class ProjectStore extends EventEmitter {
           img: "ici.png",
           score: 90,
           primaryCategory: 1,
-          secondaryCategory: null,       
+          secondaryCategory: null,  
+          activeWith: null,
+          isShown: false,     
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         },
         {
           id: 11,
@@ -261,9 +291,12 @@ class ProjectStore extends EventEmitter {
           img: "idea.png",
           score: 45,
           primaryCategory: 2,
-          secondaryCategory: null,       
+          secondaryCategory: null,    
+          activeWith: null,
+          isShown: false,   
           isSelected: false,
           isSmall: false,
+          hasSwitched: false,
         }
       ];
     }
@@ -294,6 +327,39 @@ class ProjectStore extends EventEmitter {
       }
 
       this.emit("projectSwitch");
+    }
+
+    toggleCategory(categories) {
+      let temps = this.updateActive(categories);
+
+      temps.forEach((proj) => {
+        if(proj.activeWith != null) proj.isShown = true;
+        else proj.isShown = false;
+      });
+
+
+      this.projects = temps;
+
+      this.emit("categorySwitch");
+    }
+
+    updateActive(categories) {
+      let projects = this.projects.splice(0, this.projects.length);
+
+      projects.forEach((proj) => {
+
+        if(categories.includes(proj.primaryCategory)) {
+          if(proj.activeWith === "secondary") proj.hasSwitched = !proj.hasSwitched;
+          proj.activeWith = "primary";
+        }
+        else if(categories.includes(proj.secondaryCategory)) {
+          if(proj.activeWith === "primary") proj.hasSwitched = !proj.hasSwitched;
+          proj.activeWith = "secondary";
+        }
+        else proj.activeWith = null;
+      });
+
+      return projects;
     }
   
     getAll() {

@@ -44,6 +44,12 @@ class App extends React.Component {
       });
     });
 
+    ProjectStore.on("categorySwitch", () => {
+      this.setState({
+        projects: ProjectStore.getAll(),
+      });
+    });
+
     MenuStore.on("buttonSwitch", () => {
       this.setState({
         menuButtons: MenuStore.getAll(),
@@ -113,12 +119,11 @@ class App extends React.Component {
   }
 
   handleClickOnMenuButton(id) {
-
     MenuStore.toggleButton(id);
+    ProjectStore.toggleCategory(this.getActiveCategory());
   }
 
   handleClickOnProjectButton(id) {
-
     ProjectStore.toggleProject(id);
   }
 

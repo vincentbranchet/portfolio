@@ -1,6 +1,7 @@
 import React from 'react';
 import Paragraph from './Paragraph';
 import Link from './Link';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Project extends React.Component {
     constructor(props) {
@@ -48,28 +49,42 @@ class Project extends React.Component {
     const links = this.renderLinks(this.props.links, category);
     
         return(
-            <div className={`projectWrapper ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
-                <div className={`projectTitle category_${category}`}>
-                    {title}
-                </div>
-                <div className="projectBanner">
-                    <img className="bannerImage" src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
-                </div>
-                <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
-                    <div className="projectDesc">
-                        <Paragraph text={desc} />
+            <CSSTransition
+                in={this.props.isShown}
+                timeout={250}
+                classNames="project-transition"
+                key={this.props.id}
+            >
+                <CSSTransition
+                    in={this.props.hasSwitched}
+                    timeout={400}
+                    classNames={"project-secondary-transition"}
+                    key={this.props.id + 1000}
+                >
+                <div className={`projectWrapper ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
+                    <div className={`projectTitle category_${category}`}>
+                        {title}
                     </div>
-                    <ul className={`projectFeats category_${category}`}>
-                        {feats}
-                    </ul>
+                    <div className="projectBanner">
+                        <img className="bannerImage" src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
+                    </div>
+                    <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
+                        <div className="projectDesc">
+                            <Paragraph text={desc} />
+                        </div>
+                        <ul className={`projectFeats category_${category}`}>
+                            {feats}
+                        </ul>
+                    </div>
+                    <div className={`projectLinks ${isSelected ? "selected" : "unselected"}`}>
+                        {links}
+                    </div>
+                    <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
+                        <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
+                    </div>
                 </div>
-                <div className={`projectLinks ${isSelected ? "selected" : "unselected"}`}>
-                    {links}
-                </div>
-                <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
-                    <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
-                </div>
-            </div>
+                </CSSTransition>
+            </CSSTransition>
         );
     }
 }
