@@ -16,6 +16,9 @@
     --bg-third-category: #ffffff;
     --bg-submain: #f4f7c5;
     --bg-default: #444444;
+    --box-shadow: #aeaeae;
+    --linkedin-blue: #0077B7;
+    --github-black: #24292E;
 }
 
 html, body, #root, .mainWrapper {
@@ -68,15 +71,6 @@ html, body, #root, .mainWrapper {
     margin-left: 5rem;
     height: 100vh;
     width: 100vw;
-}
-
-.contactLink img {
-    background-color: whitesmoke;
-    border-radius: 50%;
-}
-.landingLink img {
-    background-color: whitesmoke;
-    border-radius: 50%;
 }
 
 /* Menu */
@@ -154,8 +148,15 @@ html, body, #root, .mainWrapper {
     justify-content: space-around;
     align-items: center;
 }
-.landingLink:first-of-type img {
-    border-radius: 0.5rem;
+.landingLink .linkContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px var(--box-shadow), -2px -2px 5px var(--bg-submain);
+    transition: 100ms ease;
 }
 
 /* Contact */
@@ -171,6 +172,25 @@ html, body, #root, .mainWrapper {
     justify-content: space-around;
     align-items: center;
 }
+
+.contactLink .linkContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px var(--box-shadow), -2px -2px 5px var(--bg-submain);
+    transition: 100ms ease;
+}
+
+.linkContent img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .contactTextWrapper {
     display: flex;
     justify-content: center;
@@ -181,9 +201,7 @@ html, body, #root, .mainWrapper {
     display: flex;
     justify-content: space-around;
 }
-.contactLink:first-of-type img {
-    border-radius: 0.5rem;
-}
+
 
 .otherLinks {
     display: flex;
@@ -195,7 +213,6 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     padding: 2rem 3rem;
-    border: 1px var(--bg-default) solid;
     border-radius: 1rem;
     background-color: whitesmoke;
 }
@@ -229,11 +246,10 @@ html, body, #root, .mainWrapper {
     margin: 2rem 2rem 4rem 2rem;
     position: relative;
     overflow: visible;
-    transition: 150ms ease;
     border: 1px solid var(--bg-default);
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: white;
-    transition: display 200ms ease;
+    transition: 200ms ease;
 }
 
 .projectTitle, .projectBanner, .projectContent, .projectLinks {
@@ -339,6 +355,7 @@ html, body, #root, .mainWrapper {
     background-color: white;
     line-height: 5rem;
     text-align: center;
+    transition: background-color 200ms ease;
 }
 
 .projectButton.category_1 {
@@ -431,6 +448,7 @@ html, body, #root, .mainWrapper {
         max-width: 90%;
         font-size: 0.8rem;
         margin-bottom: 1rem;
+        
     }
     .contactLinksWrapper {
         justify-content: center;
@@ -438,12 +456,47 @@ html, body, #root, .mainWrapper {
     .webLinks, .otherLinks {
         width: 100%;
     }
+    .webLinks {
+        margin-bottom: 1rem;
+    }
+    .contactLink, .landingLink {
+        width: 5rem;
+        height: 5rem;
+    }
     .contactLink img {
-        width: 3rem;
+        width: 2rem;
     }
+    .contactLink:first-child .linkContent {
+        background-color: var(--linkedin-blue);
+    }
+    .contactLink:first-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+    .contactLink:last-child .linkContent {
+        background-color: var(--github-black);
+    }
+    .contactLink:last-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
     .landingLink img {
-        width: 3rem;
+        width: 2rem;
     }
+    .landingLink:first-child .linkContent {
+        top: -10px;
+        background-color: var(--linkedin-blue);
+    }
+    .landingLink:first-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+    .landingLink:last-child .linkContent {
+        top: -10px;
+        background-color: black;
+    }
+    .landingLink:last-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
     .otherLink {
         width: 80%;
         padding: 1rem 1.5rem;
@@ -546,11 +599,15 @@ html, body, #root, .mainWrapper {
         width: 200%;
         margin-left: 2rem;
     }
+    .contactLink, .landingLink {
+        width: 10rem;
+        height: 10rem;
+    }
     .contactLink img {
-        width: 8rem;
+        width: 5rem;
     }
     .landingLink img {
-        width: 8rem;
+        width: 5rem;
     }
     .webLinks {
         width: 100%;
@@ -631,6 +688,57 @@ html, body, #root, .mainWrapper {
     .menuLitButton:hover {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
+
+    .projectButton.category_1:hover img {
+        filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+    }
+    .projectButton.category_1:hover {
+        background-color: var(--bg-first-category);
+    }
+    .projectButton.category_2:hover img {
+        filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+    }
+    .projectButton.category_2:hover {
+        background-color: var(--bg-second-category);
+    }
+    .projectButton.category_3:hover img {
+        filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+    }
+    .projectButton.category_3:hover {
+        background-color: var(--bg-default);
+        border-color: white;
+    }
+
+    .contactLink:first-child:hover .linkContent {
+        top: -10px;
+        background-color: var(--linkedin-blue);
+    }
+    .contactLink:first-child:hover .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+    .contactLink:last-child:hover .linkContent {
+        top: -10px;
+        background-color: black;
+    }
+    .contactLink:last-child:hover .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
+    .landingLink:first-child:hover .linkContent {
+        top: -10px;
+        background-color: var(--linkedin-blue);
+    }
+    .landingLink:first-child:hover .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+    .landingLink:last-child:hover .linkContent {
+        top: -10px;
+        background-color: black;
+    }
+    .landingLink:last-child:hover .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
 }
 
 /* Project transitions */
@@ -641,8 +749,8 @@ html, body, #root, .mainWrapper {
 }
 .project-secondary-transition-enter-active {
     visibility: visible;
-    opacity: 1;
-    transition: all 400ms ease;
+    opacity: 0;
+    transition: 150ms ease;
 }
 .project-secondary-transition-exit {
     visibility: hidden;
@@ -650,6 +758,7 @@ html, body, #root, .mainWrapper {
 }
 .project-secondary-transition-exit-active {
     visibility: visible;
-    opacity: 1;
-    transition: all 400ms ease;
+    opacity: 0;
+    transition: 150ms ease;
 }
+
