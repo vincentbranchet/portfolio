@@ -90,8 +90,10 @@ class App extends React.Component {
     const activeButton = this.getActiveButton();
 
     if(activeCategory.length > 0) {
+
       return (
         <ProjectPage
+          projectShown={this.state.projectShown}
           category={activeCategory}
           projects={projects}
           width={this.state.screenWidth}
@@ -99,15 +101,19 @@ class App extends React.Component {
       />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 1) {
+
       return (
-        <LandingPage 
+        <LandingPage
+          landingShown={this.state.landingShown}
           text={this.state.texts.landing} 
           links={this.state.links}
         />);
     }
     else if(activeButton.length === 1 && activeButton[0].id === 2) {
+
       return (
         <ContactPage 
+          contactShown={this.state.contactShown}
           text={this.state.texts.contact} 
           links={this.state.links}
         />
@@ -131,7 +137,7 @@ class App extends React.Component {
     const activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
     const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
     const page = this.routePage();
-
+    console.log(this.state);
     return (
       <div className="mainWrapper">
         <Menu 

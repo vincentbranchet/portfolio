@@ -161,6 +161,11 @@ html, body, #root, .mainWrapper {
     justify-content: space-around;
     align-items: center;
 }
+.landingLink {
+    background-color: var(--box-shadow);
+    box-shadow: -2px 2px 2px var(--box-shadow);
+    border-radius: 1rem;
+}
 .landingLink .linkContent {
     width: 100%;
     height: 100%;
@@ -168,7 +173,6 @@ html, body, #root, .mainWrapper {
     top: 0;
     background-color: whitesmoke;
     border-radius: 1rem;
-    box-shadow: 2px 2px 2px var(--box-shadow);
     transition: 100ms ease;
 }
 
@@ -185,6 +189,11 @@ html, body, #root, .mainWrapper {
     justify-content: space-around;
     align-items: center;
 }
+.contactLink {
+    background-color: var(--box-shadow);
+    box-shadow: -2px 2px 2px var(--box-shadow);
+    border-radius: 1rem;
+}
 
 .contactLink .linkContent {
     width: 100%;
@@ -193,7 +202,6 @@ html, body, #root, .mainWrapper {
     top: 0;
     background-color: whitesmoke;
     border-radius: 1rem;
-    box-shadow: 2px 2px 2px var(--box-shadow);
     transition: 100ms ease;
 }
 
@@ -219,7 +227,6 @@ html, body, #root, .mainWrapper {
     justify-content: space-around;
 }
 
-
 .otherLinks {
     display: flex;
     flex-direction: column;
@@ -230,9 +237,7 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     padding: 2rem 3rem;
-    border-radius: 0.5rem;
     background-color: whitesmoke;
-    box-shadow: 2px 2px 2px var(--box-shadow);
     transition: 100ms ease;
 }
 
@@ -476,6 +481,27 @@ html, body, #root, .mainWrapper {
         width: 40%;
         margin-top: 1rem;
     }
+    .landingLink {
+        box-shadow: none;
+        width: 5rem;
+        height: 5rem;
+    }
+    .landingLink img {
+        width: 2rem;
+    }
+    .landingLink:first-child .linkContent {
+        background-color: var(--linkedin-blue);
+    }
+    .landingLink:first-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+    .landingLink:last-child .linkContent {
+        background-color: black;
+    }
+    .landingLink:last-child .linkContent img {
+        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
 
     .contactPageWrapper {
         flex-direction: column;
@@ -499,13 +525,15 @@ html, body, #root, .mainWrapper {
     .webLinks {
         margin-bottom: 1rem;
     }
-    .landingLink {
-        width: 5rem;
-        height: 5rem;
-    }
+
     .contactLink {
         width: 4rem;
         height: 4rem;
+        box-shadow: none;
+        border-radius: 0.5rem;
+    }
+    .contactLink .linkContent {
+        border-radius: 0.5rem;
     }
     .contactLink img {
         width: 2rem;
@@ -533,7 +561,7 @@ html, body, #root, .mainWrapper {
     .otherLink img {
         height: 2rem;
         width: 2rem;
-        margin-left: 15%;
+        margin-left: 10%;
     }
     .otherLink .paragraph {
         margin-left: 1rem;
@@ -558,25 +586,6 @@ html, body, #root, .mainWrapper {
     }
     .otherLink:last-child img {
         filter: invert(53%) sepia(33%) saturate(1174%) hue-rotate(58deg) brightness(101%) contrast(80%);
-    }
-
-
-    .landingLink img {
-        width: 2rem;
-    }
-    .landingLink:first-child .linkContent {
-        top: -10px;
-        background-color: var(--linkedin-blue);
-    }
-    .landingLink:first-child .linkContent img {
-        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
-    }
-    .landingLink:last-child .linkContent {
-        top: -10px;
-        background-color: black;
-    }
-    .landingLink:last-child .linkContent img {
-        filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
 
     .projectWrapper.unselected {
@@ -605,10 +614,6 @@ html, body, #root, .mainWrapper {
     .projectLinks a {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
-    }
-
-    .landingLink {
-        padding: 0.5rem 2rem;
     }
 
     .project-transition-enter {
@@ -694,6 +699,25 @@ html, body, #root, .mainWrapper {
     .otherLink .paragraph {
         font-size: 1.2rem;
     }
+    .otherLink:first-child {
+        border-left: 5px solid var(--gmail-dark-red);
+    }
+    .otherLink:first-child .paragraph {
+        color: var(--gmail-dark-red);
+    }
+    .otherLink:first-child img {
+        filter: invert(38%) sepia(98%) saturate(576%) hue-rotate(320deg) brightness(93%) contrast(89%);
+    }
+
+    .otherLink:last-child {
+        border-left: 5px solid var(--whatsapp-dark-green);
+    }
+    .otherLink:last-child .paragraph {
+        color: var(--whatsapp-dark-green);
+    }
+    .otherLink:last-child img {
+        filter: invert(53%) sepia(33%) saturate(1174%) hue-rotate(58deg) brightness(101%) contrast(80%);
+    }
 
     .projectWrapper.unselected {
         height: 25rem;
@@ -777,48 +801,33 @@ html, body, #root, .mainWrapper {
     }
 
     .contactLink:first-child:hover .linkContent {
-        top: -10px;
+        top: -3px;
+        left: 3px;
         background-color: var(--linkedin-blue);
     }
     .contactLink:first-child:hover .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
     .contactLink:last-child:hover .linkContent {
-        top: -10px;
+        top: -3px;
+        left: 3px;
         background-color: black;
     }
     .contactLink:last-child:hover .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
 
-    .otherLink:first-child:hover {
-        background-color: var(--gmail-light-red);
-    }
-    .otherLink:first-child:hover .paragraph {
-        color: var(--gmail-dark-red);
-    }
-    .otherLink:first-child:hover img {
-        filter: invert(38%) sepia(98%) saturate(576%) hue-rotate(320deg) brightness(93%) contrast(89%);
-    }
-    .otherLink:last-child:hover {
-        background-color: var(--whatsapp-light-green);
-    }
-    .otherLink:last-child:hover .paragraph {
-        color: var(--whatsapp-dark-green);
-    }
-    .otherLink:last-child:hover img {
-        filter: invert(53%) sepia(33%) saturate(1174%) hue-rotate(58deg) brightness(101%) contrast(80%);
-    }
-
     .landingLink:first-child:hover .linkContent {
-        top: -10px;
+        top: -3px;
+        left: 3px;
         background-color: var(--linkedin-blue);
     }
     .landingLink:first-child:hover .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
     .landingLink:last-child:hover .linkContent {
-        top: -10px;
+        top: -3px;
+        left: 3px;
         background-color: black;
     }
     .landingLink:last-child:hover .linkContent img {
@@ -828,6 +837,10 @@ html, body, #root, .mainWrapper {
 }
 
 /* Project transitions */
+
+.contactPageWrapper, .landingPageWrapper, .projectPageWrapper {
+
+}
 
 .project-secondary-transition-enter {
     visibility: hidden;
@@ -848,3 +861,25 @@ html, body, #root, .mainWrapper {
     transition: 150ms ease;
 }
 
+.page-transition-enter {
+    visibility: hidden;
+    opacity: 0;
+    left: -500px;
+}
+.page-transition-enter-active {
+    visibility: visible;
+    opacity: 1;
+    left: 0px;
+    transition: 200ms ease;
+}
+.page-transition-exit {
+    visibility: visible;
+    opacity: 1;
+    left: 0px;
+}
+.page-transition-exit-active {
+    visibility: hidden;
+    opacity: 0;
+    left: -500px;
+    transition: 200ms ease;
+}
