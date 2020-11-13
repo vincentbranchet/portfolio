@@ -16,9 +16,13 @@
     --bg-third-category: #ffffff;
     --bg-submain: #f4f7c5;
     --bg-default: #444444;
-    --box-shadow: #aeaeae;
+    --box-shadow: #bfc199;
     --linkedin-blue: #0077B7;
     --github-black: #24292E;
+    --gmail-light-red: #FCE8E6;
+    --gmail-dark-red: #DF544B;
+    --whatsapp-light-green: #95DB76;
+    --whatsapp-dark-green: #4AAE20;
 }
 
 html, body, #root, .mainWrapper {
@@ -26,6 +30,10 @@ html, body, #root, .mainWrapper {
     height: 100%;
     overflow: hidden;
     background-color: var(--bg-submain);
+}
+
+.paragraph {
+    color: var(--bg-default);
 }
 
 .projectPageWrapper::-webkit-scrollbar{
@@ -117,7 +125,7 @@ html, body, #root, .mainWrapper {
 .menuButtonText {
     display: none;
     margin-left: 1rem;
-    font-weight: 900;
+    font-size: 1.2em;
 }
 
 .menuButton img {
@@ -137,11 +145,16 @@ html, body, #root, .mainWrapper {
 }
 .landingPresentationWrapper {
     display: flex;
-    align-items: center;
+    align-items: center;    
+}
+.landingPresentationWrapper .paragraph {
+    padding-left: 15px;
+    border-left: 5px solid var(--bg-main);
 }
 .profilePicWrapper img {
     border-radius: 50%;
     width: 20rem;
+    border: 10px solid var(--bg-main);
 }
 .landingLinksWrapper {
     display: flex;
@@ -155,7 +168,7 @@ html, body, #root, .mainWrapper {
     top: 0;
     background-color: whitesmoke;
     border-radius: 1rem;
-    box-shadow: 2px 2px 5px var(--box-shadow), -2px -2px 5px var(--bg-submain);
+    box-shadow: 2px 2px 2px var(--box-shadow);
     transition: 100ms ease;
 }
 
@@ -180,7 +193,7 @@ html, body, #root, .mainWrapper {
     top: 0;
     background-color: whitesmoke;
     border-radius: 1rem;
-    box-shadow: 2px 2px 5px var(--box-shadow), -2px -2px 5px var(--bg-submain);
+    box-shadow: 2px 2px 2px var(--box-shadow);
     transition: 100ms ease;
 }
 
@@ -195,6 +208,10 @@ html, body, #root, .mainWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.contactTextWrapper .paragraph {
+    padding-left: 15px;
+    border-left: 5px solid var(--bg-main);
 }
 
 .webLinks {
@@ -213,8 +230,10 @@ html, body, #root, .mainWrapper {
     display: flex;
     align-items: center;
     padding: 2rem 3rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: whitesmoke;
+    box-shadow: 2px 2px 2px var(--box-shadow);
+    transition: 100ms ease;
 }
 
 .otherLink .paragraph {
@@ -222,7 +241,26 @@ html, body, #root, .mainWrapper {
     height: 5rem;
     line-height: 5rem;
     text-align: center;
+    font-weight: 900;
 }
+
+.otherLink:first-child .paragraph::selection {
+    background: var(--gmail-dark-red);
+    color: whitesmoke;
+}
+.otherLink:first-child .paragraph::-moz-selection {
+    background: var(--gmail-dark-red);
+    color: whitesmoke;
+}
+.otherLink:last-child .paragraph::selection {
+    background: var(--whatsapp-dark-green);
+    color: whitesmoke;
+}
+.otherLink:last-child .paragraph::-moz-selection {
+    background: var(--whatsapp-dark-green);
+    color: whitesmoke;
+}
+
 
 /* Projects  */
 .projectPageWrapper {
@@ -420,7 +458,7 @@ html, body, #root, .mainWrapper {
         height: 80%;
         flex-direction: column;
         justify-content: space-evenly;
-        padding: 0 1rem;
+        padding: 2rem 0 1rem 0;
     }
     .landingPresentationWrapper .paragraph {
         font-size: 0.8rem;
@@ -448,10 +486,12 @@ html, body, #root, .mainWrapper {
         max-width: 90%;
         font-size: 0.8rem;
         margin-bottom: 1rem;
+        padding-right: 2.5rem;
         
     }
     .contactLinksWrapper {
         justify-content: center;
+        width: 100%;
     }
     .webLinks, .otherLinks {
         width: 100%;
@@ -459,9 +499,13 @@ html, body, #root, .mainWrapper {
     .webLinks {
         margin-bottom: 1rem;
     }
-    .contactLink, .landingLink {
+    .landingLink {
         width: 5rem;
         height: 5rem;
+    }
+    .contactLink {
+        width: 4rem;
+        height: 4rem;
     }
     .contactLink img {
         width: 2rem;
@@ -479,6 +523,44 @@ html, body, #root, .mainWrapper {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
 
+    .otherLink {
+        width: 100%;
+        padding: 0.5rem 0 0.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .otherLink img {
+        height: 2rem;
+        width: 2rem;
+        margin-left: 15%;
+    }
+    .otherLink .paragraph {
+        margin-left: 1rem;
+        height: 2rem;
+        line-height: 2rem;
+        font-weight: 600;
+    }
+    .otherLink:first-child {
+        border-bottom: 5px solid var(--gmail-dark-red);
+    }
+    .otherLink:first-child .paragraph {
+        color: var(--gmail-dark-red);
+    }
+    .otherLink:first-child img {
+        filter: invert(38%) sepia(98%) saturate(576%) hue-rotate(320deg) brightness(93%) contrast(89%);
+    }
+    .otherLink:last-child {
+        border-bottom: 5px solid var(--whatsapp-dark-green);
+    }
+    .otherLink:last-child .paragraph {
+        color: var(--whatsapp-dark-green);
+    }
+    .otherLink:last-child img {
+        filter: invert(53%) sepia(33%) saturate(1174%) hue-rotate(58deg) brightness(101%) contrast(80%);
+    }
+
+
     .landingLink img {
         width: 2rem;
     }
@@ -495,21 +577,6 @@ html, body, #root, .mainWrapper {
     }
     .landingLink:last-child .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
-    }
-
-    .otherLink {
-        width: 80%;
-        padding: 1rem 1.5rem;
-        margin: 0.5rem 0;
-    }
-    .otherLink img {
-        height: 2rem;
-        width: 2rem;
-    }
-    .otherLink .paragraph {
-        margin-left: 1rem;
-        height: 1.2rem;
-        line-height: 1rem;
     }
 
     .projectWrapper.unselected {
@@ -566,7 +633,7 @@ html, body, #root, .mainWrapper {
     }
 
     .menuWrapper:hover {
-        width: 13rem;
+        width: 15rem;
     }
 
     .menuWrapper:hover .menuButtonText {
@@ -584,7 +651,7 @@ html, body, #root, .mainWrapper {
     }
 
     .landingPresentationWrapper .paragraph {
-        max-width: 35%;
+        max-width: 520px;
     }
     .landingLinksWrapper {
         height: 40%;
@@ -659,12 +726,12 @@ html, body, #root, .mainWrapper {
     }
 
     .project-transition-enter {
-        top: -200px;
+        left: -200px;
         visibility: hidden;
         opacity: 0;
     }
     .project-transition-enter-active {
-        top: 0;
+        left: 0;
         visibility: visible;
         opacity: 1;
         transition: all 250ms ease-out;
@@ -722,6 +789,25 @@ html, body, #root, .mainWrapper {
     }
     .contactLink:last-child:hover .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
+    .otherLink:first-child:hover {
+        background-color: var(--gmail-light-red);
+    }
+    .otherLink:first-child:hover .paragraph {
+        color: var(--gmail-dark-red);
+    }
+    .otherLink:first-child:hover img {
+        filter: invert(38%) sepia(98%) saturate(576%) hue-rotate(320deg) brightness(93%) contrast(89%);
+    }
+    .otherLink:last-child:hover {
+        background-color: var(--whatsapp-light-green);
+    }
+    .otherLink:last-child:hover .paragraph {
+        color: var(--whatsapp-dark-green);
+    }
+    .otherLink:last-child:hover img {
+        filter: invert(53%) sepia(33%) saturate(1174%) hue-rotate(58deg) brightness(101%) contrast(80%);
     }
 
     .landingLink:first-child:hover .linkContent {
