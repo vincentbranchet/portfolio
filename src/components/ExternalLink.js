@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Link(props) {
+function ExternalLink(props) {
     return (
         <a className={`link ${props.className}`} href={props.href} target={props.target}>
             <div className="linkContent">
@@ -10,4 +10,4 @@ function Link(props) {
     );
 }
 
-export default Link;
+export default ExternalLink;

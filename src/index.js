@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import './index.css';
 import ProjectStore from './stores/ProjectStore.js';
@@ -71,59 +73,6 @@ class App extends React.Component {
     return activeCategory;
   }
 
-  getActiveButton() {
-    const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
-    let activeButton = [];
-
-    menuButtons.forEach(btn => {
-      if(btn.isSelected === true) {
-        activeButton.push(btn);
-      }
-    });
-
-    return activeButton;
-  }
-
-  routePage() {
-    const activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
-    const projects = this.state.projects.slice(0, this.state.projects.length);
-    const activeButton = this.getActiveButton();
-
-    if(activeCategory.length > 0) {
-
-      return (
-        <ProjectPage
-          projectShown={this.state.projectShown}
-          category={activeCategory}
-          projects={projects}
-          width={this.state.screenWidth}
-          onClick={(id) => this.handleClickOnProjectButton(id)}
-      />);
-    }
-    else if(activeButton.length === 1 && activeButton[0].id === 1) {
-
-      return (
-        <LandingPage
-          landingShown={this.state.landingShown}
-          text={this.state.texts.landing} 
-          links={this.state.links}
-        />);
-    }
-    else if(activeButton.length === 1 && activeButton[0].id === 2) {
-
-      return (
-        <ContactPage 
-          contactShown={this.state.contactShown}
-          text={this.state.texts.contact} 
-          links={this.state.links}
-        />
-      );
-    }
-    else {
-      // error : wrong page state
-    }
-  }
-
   handleClickOnMenuButton(id) {
     MenuStore.toggleButton(id);
     ProjectStore.toggleCategory(this.getActiveCategory());
@@ -136,9 +85,9 @@ class App extends React.Component {
   render() {
     const activeCategory = this.state.activeCategory.slice(0, this.state.activeCategory.length);
     const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
-    const page = this.routePage();
-    console.log(this.state);
+
     return (
+      <Router>
       <div className="mainWrapper">
         <Menu 
           onClick={(id) => this.handleClickOnMenuButton(id)}
@@ -146,9 +95,43 @@ class App extends React.Component {
           buttons={menuButtons}
         />
         <div className="pageWrapper">
-          {page}
+          <Switch>
+              <Route 
+              exact 
+              path="/" 
+              render={(...props) => (
+                  <LandingPage {...props} 
+                  text={this.state.texts.landing} 
+                  links={this.state.links}  
+                  /> 
+              )}
+              />
+              <Route 
+              exact 
+              path="/contact" 
+              render={(...props) => (
+                  <ContactPage {...props} 
+                  text={this.state.texts.contact} 
+                  links={this.state.links}
+                  /> 
+              )}
+              />
+              <Route 
+              exact 
+              path="/projets" 
+              render={(...props) => (
+                  <ProjectPage {...props} 
+                  category={this.state.category}
+                  projects={this.state.projects}
+                  width={this.state.screenWidth}
+                  onClick={(id) => this.handleClickOnProjectButton(id)}
+                  /> 
+              )}
+              />
+          </Switch>
         </div>
       </div>
+      </Router>
     );
   }
 }

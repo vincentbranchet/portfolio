@@ -1,6 +1,6 @@
 import React from 'react';
 import Paragraph from './Paragraph';
-import Link from './Link';
+import ExternalLink from './ExternalLink';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Project extends React.Component {
@@ -26,7 +26,7 @@ class Project extends React.Component {
 
         if(Array.isArray(array)) {
             array.forEach((link) => links.push(
-                <Link 
+                <ExternalLink 
                  className={`projectLink category_${cat}`}
                  href={`${link.url}`} 
                  target="_blank"

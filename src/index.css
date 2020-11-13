@@ -32,6 +32,11 @@ html, body, #root, .mainWrapper {
     background-color: var(--bg-submain);
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .paragraph {
     color: var(--bg-default);
 }

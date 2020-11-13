@@ -1,6 +1,6 @@
 import React from 'react';
 import Paragraph from './Paragraph';
-import Link from './Link';
+import ExternalLink from './ExternalLink';
 
 class ContactPage extends React.Component {
     render() {
@@ -11,13 +11,13 @@ class ContactPage extends React.Component {
           </div>
           <div className="contactLinksWrapper">
             <div className="webLinks">
-              <Link 
+              <ExternalLink 
                 className={"contactLink"}
                 href={this.props.links.linkedIn}
                 target={"_blank"}
                 text={<img src={`${process.env.PUBLIC_URL}/assets/img/linkedIn.png`} />}
               />
-              <Link 
+              <ExternalLink 
                 className={"contactLink"}
                 href={this.props.links.github}
                 target={"_blank"}
