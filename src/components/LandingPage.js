@@ -5,7 +5,7 @@ import ExternalLink from './ExternalLink';
 class LandingPage extends React.Component {
     render() {
       return (
-        <div className="landingPageWrapper">
+        <div className={`landingPageWrapper ${this.props.direction}`}>
           <div className="landingPresentationWrapper">
             <Paragraph
               text={this.props.text}

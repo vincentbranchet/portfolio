@@ -14,27 +14,6 @@ class ProjectPage extends React.Component {
           selected.push(proj);
         }
       });
-  /*
-      // push all projects that match selected category with their primary category
-      for(let i of category) {
-        projects.forEach(proj => {
-          if(i === proj.primaryCategory) {
-            proj.activeWith = "primary";
-            selected.push(proj);          
-          }
-        });
-      }
-  
-      // then, push all projects that match selected category with their secondary category & aren't already selected
-      for(let i of category) {
-        projects.forEach(proj => {
-          const isSelected = selected.find((project) => project.id == proj.id);
-          if(i === proj.secondaryCategory && typeof isSelected === "undefined") {
-            proj.activeWith = "secondary";
-            selected.push(proj);
-          }
-        });
-      }*/
   
       // sort by score
       sorted = selected.sort((a, b) => b.score - a.score);
@@ -102,7 +81,7 @@ class ProjectPage extends React.Component {
   
       return (
         <TransitionGroup component={null}>
-          <div className="projectPageWrapper">
+          <div className={`projectPageWrapper ${this.props.direction}`}>
               {rendered}
           </div>
         </TransitionGroup>

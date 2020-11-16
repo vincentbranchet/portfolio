@@ -41,6 +41,10 @@ a {
     color: var(--bg-default);
 }
 
+.landingPageWrapper, .contactPageWrapper, .projectPageWrapper {
+    position: relative;
+}
+
 .projectPageWrapper::-webkit-scrollbar{
     width: 0.5rem;
 }
@@ -632,6 +636,25 @@ a {
         opacity: 1;
         transition: all 250ms ease-out;
     }
+
+    .page-transition-enter.left {
+        left: -100%;
+    }
+    .page-transition-enter.right {
+        left: 100%;
+    }
+    
+    .page-transition-exit.left {
+        left: 100%;
+    }
+    .page-transition-exit.right {
+        left: -100%;
+    }
+    
+    .page-transition-enter.page-transition-enter-active {
+        left: 0;
+        transition: 300ms ease-out;
+    }
 }
 
 /* Large screens */
@@ -765,6 +788,19 @@ a {
         opacity: 1;
         transition: all 250ms ease-out;
     }
+
+    .page-transition-enter {
+        opacity: 0;
+    }
+    
+    .page-transition-exit {
+        opacity: 0;
+    }
+    
+    .page-transition-enter.page-transition-enter-active {
+        opacity: 1;
+        transition: 500ms ease-out;
+    }
 }
 
 @media (hover: hover) {
@@ -841,11 +877,7 @@ a {
 
 }
 
-/* Project transitions */
-
-.contactPageWrapper, .landingPageWrapper, .projectPageWrapper {
-
-}
+/* Transitions - projects */
 
 .project-secondary-transition-enter {
     visibility: hidden;
@@ -866,25 +898,13 @@ a {
     transition: 150ms ease;
 }
 
-.page-transition-enter {
-    visibility: hidden;
-    opacity: 0;
-    left: -500px;
-}
-.page-transition-enter-active {
-    visibility: visible;
-    opacity: 1;
-    left: 0px;
-    transition: 200ms ease;
-}
+/* Transitions - pages */
+
 .page-transition-exit {
-    visibility: visible;
-    opacity: 1;
-    left: 0px;
+    z-index: 1;
 }
-.page-transition-exit-active {
-    visibility: hidden;
-    opacity: 0;
-    left: -500px;
-    transition: 200ms ease;
+
+.page-transition-enter {
+    z-index: 10;
 }
+

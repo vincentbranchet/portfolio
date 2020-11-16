@@ -5,7 +5,7 @@ import ExternalLink from './ExternalLink';
 class ContactPage extends React.Component {
     render() {
       return (
-        <div className="contactPageWrapper">
+        <div className={`contactPageWrapper ${this.props.direction}`}>
           <div className="contactTextWrapper">
             <Paragraph text={this.props.text} />
           </div>
