@@ -31,6 +31,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "lateforlove.jpg",
+          isLogo: false,
           score: 75,
           primaryCategory: 2,
           secondaryCategory: 3,
@@ -63,6 +64,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "",
+          isLogo: false,
           score: 100,
           primaryCategory: 1,
           secondaryCategory: 2,
@@ -92,6 +94,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "slv.png",
+          isLogo: false,
           score: 50,
           primaryCategory: 1,
           secondaryCategory: 2,  
@@ -118,6 +121,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "blog.png",
+          isLogo: false,
           score: 40,
           primaryCategory: 1,
           secondaryCategory: null,   
@@ -139,6 +143,7 @@ class ProjectStore extends EventEmitter {
           ],
           links: [],
           img: "velib.png",
+          isLogo: false,
           score: 30,
           primaryCategory: 1,
           secondaryCategory: null,    
@@ -161,6 +166,7 @@ class ProjectStore extends EventEmitter {
           ],
           links: [],
           img: "mapremiere.png",
+          isLogo: false,
           score: 60,
           primaryCategory: 2,
           secondaryCategory: 3,     
@@ -188,6 +194,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "rainbow.png",
+          isLogo: false,
           score: 30,
           primaryCategory: 2,
           secondaryCategory: 3,    
@@ -213,6 +220,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "kervegan.png",
+          isLogo: false,
           score: 40,
           primaryCategory: 3,
           secondaryCategory: null,  
@@ -238,6 +246,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "deuxiemesoleil.png",
+          isLogo: false,
           score: 50,
           primaryCategory: 3,
           secondaryCategory: null,   
@@ -264,6 +273,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "ici.png",
+          isLogo: true,
           score: 90,
           primaryCategory: 1,
           secondaryCategory: null,  
@@ -289,6 +299,7 @@ class ProjectStore extends EventEmitter {
             }
           ],
           img: "idea.png",
+          isLogo: true,
           score: 45,
           primaryCategory: 2,
           secondaryCategory: null,    

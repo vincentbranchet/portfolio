@@ -1,3 +1,17 @@
+/*
+    TABLE OF CONTENT
+    || General
+    || Menu
+    || Landing page
+    || Contact page
+    || Responsive - small screens
+    || Responsive - large screens
+    || Hover effects
+    || Transitions - projects
+    || Transitions - pages
+*/
+
+/* || General */
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +53,7 @@ a {
 
 .paragraph {
     color: var(--bg-default);
+    max-width: 520px;
 }
 
 .landingPageWrapper, .contactPageWrapper, .projectPageWrapper {
@@ -90,7 +105,7 @@ a {
     width: 100vw;
 }
 
-/* Menu */
+/* || Menu */
 .menuWrapper {
     position: fixed;
     background-color: var(--bg-main);
@@ -146,15 +161,11 @@ a {
     line-height: 1.5rem;
 }
 
-/* Landing page */
+/* || Landing page */
 .landingPageWrapper {
     height: 100%;
     width: 100%;
     overflow-y: scroll;
-}
-.landingPresentationWrapper {
-    display: flex;
-    align-items: center;    
 }
 .landingPresentationWrapper .paragraph {
     padding-left: 15px;
@@ -184,8 +195,11 @@ a {
     border-radius: 1rem;
     transition: 100ms ease;
 }
+.landingLink:first-child .linkContent img {
+    filter: invert(34%) sepia(43%) saturate(6655%) hue-rotate(182deg) brightness(88%) contrast(101%);
+}
 
-/* Contact */
+/* || Contact */
 .contactPageWrapper {
     height: 100%;
     width: 100%;
@@ -202,6 +216,9 @@ a {
     background-color: var(--box-shadow);
     box-shadow: -2px 2px 2px var(--box-shadow);
     border-radius: 1rem;
+}
+.contactLink:first-child .linkContent img {
+    filter: invert(34%) sepia(43%) saturate(6655%) hue-rotate(182deg) brightness(88%) contrast(101%);
 }
 
 .contactLink .linkContent {
@@ -229,6 +246,7 @@ a {
 .contactTextWrapper .paragraph {
     padding-left: 15px;
     border-left: 5px solid var(--bg-main);
+    min-width: 175px;
 }
 
 .webLinks {
@@ -250,9 +268,9 @@ a {
 }
 
 .otherLink .paragraph {
-    margin-left: 2rem;
-    height: 5rem;
-    line-height: 5rem;
+    margin-left: 2vw;
+    height: 5vh;
+    line-height: 5vh;
     text-align: center;
     font-weight: 900;
 }
@@ -295,7 +313,7 @@ a {
 }
 
 
-/* Projects  */
+/* || Projects  */
 .projectPageWrapper {
     height: 100%;
     width: 100%;
@@ -314,7 +332,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem 2rem 4rem 2rem;
+    margin: 2vw 2vw 4vw 2vw;
     position: relative;
     overflow: visible;
     border: 1px solid var(--bg-default);
@@ -328,8 +346,6 @@ a {
 }
 
 .projectTitle {
-    height: 5rem;
-    line-height: 5rem;
     text-align: center;
     border-radius: 0.5rem 0.5rem 0 0;
     border-bottom: 1px solid var(--bg-default);
@@ -361,8 +377,9 @@ a {
     transform: translate(-50%, -50%);
 }
 
-.projectContent {
-    height: 19rem;
+.bannerImage.logo {
+    max-height: 50%;
+    max-width: 50%;
 }
 
 .projectContent.unselected {
@@ -389,6 +406,7 @@ a {
 .projectLinks {
     height: 2.5rem;
     margin-bottom: 3.5rem;
+    margin-top: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -418,13 +436,13 @@ a {
 }
 
 .projectButton {
-    height: 5rem;
-    width: 5rem;
-    border-radius: 5rem;
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
     position: absolute;
-    bottom: -2.5rem;
+    bottom: -2.5vw;
     background-color: white;
-    line-height: 5rem;
+    line-height: 5vw;
     text-align: center;
     transition: background-color 200ms ease;
 }
@@ -449,19 +467,21 @@ a {
 }
 
 .projectButton img {
-    height: 3rem;
-    width: 3rem;
+    height: 3vw;
+    width: 3vw;
     vertical-align: middle;
 }
 
 
-/* Small screens */
+/* || Responsive - Small screens */
 @media only screen and (max-width: 600px) {
+    /* Responsive - Small screens - General */
     .pageWrapper {
         margin-bottom: 5rem;
         height: auto;
     }
 
+    /* Responsive - Small screens - Menu */
     .menuWrapper {
         bottom: 0;
         width: 100vw;
@@ -486,19 +506,24 @@ a {
     .pageWrapper {
         margin-left: 0;
     }
-
+    
+    /* Responsive - Small screens - Landing */
+    .landingPageWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
     .landingPresentationWrapper {
-        height: 80%;
+        margin-top: 7vh;
         flex-direction: column;
         justify-content: space-evenly;
-        padding: 2rem 0 1rem 0;
     }
     .landingPresentationWrapper .paragraph {
         font-size: 0.8rem;
     }
 
-    .landingLinksWrapper {
-        height: 20%;
+    .landingPresentationWrapper, .landingLinksWrapper {
+        width: 100%;
     }
 
     .profilePicWrapper {
@@ -506,16 +531,16 @@ a {
         justify-content: center;
     }
     .profilePicWrapper img {
-        width: 40%;
-        margin-top: 1rem;
+        width: 30vw;
+        margin-top: 2vh;
     }
     .landingLink {
         box-shadow: none;
-        width: 5rem;
-        height: 5rem;
+        width: 20vw;
+        height: 20vw;
     }
     .landingLink img {
-        width: 2rem;
+        width: 10vw;
     }
     .landingLink:first-child .linkContent {
         background-color: var(--linkedin-blue);
@@ -530,7 +555,7 @@ a {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
     }
 
-
+    /* Responsive - Small screens - Contact */
     .contactPageWrapper {
         flex-direction: column;
         justify-content: center;
@@ -555,8 +580,8 @@ a {
     }
 
     .contactLink {
-        width: 4rem;
-        height: 4rem;
+        width: 20vw;
+        height: 20vw;
         box-shadow: none;
         border-radius: 0.5rem;
     }
@@ -564,7 +589,7 @@ a {
         border-radius: 0.5rem;
     }
     .contactLink img {
-        width: 2rem;
+        width: 10vw;
     }
     .contactLink:first-child .linkContent {
         background-color: var(--linkedin-blue);
@@ -598,34 +623,59 @@ a {
         font-weight: 600;
     }
 
-
+    /* Responsive - Small screens - Projects */
+    .projectWrapper {
+        margin-bottom: 5vh;
+    }
     .projectWrapper.unselected {
-        height: 20rem;
-        width: 20rem;
+        height: 80vw;
+        width: 80vw;
     }
 
     .projectWrapper.selected {
-        width: 20rem;
-        height: 70rem;
+        width: 80vw;
+        height: 265vw;
     }
 
-    .projectContent.selected {
-        height: 49rem;
-        flex-direction: column;
+    .projectTitle {
+        height: 15vw;
+        line-height: 15vw;
     }
 
     .projectBanner {
-        height: 15rem;
+        height: 65vw;
+    }
+
+    .projectButton {
+        height: 15vw;
+        width: 15vw;
+        line-height: 15vw;
+        bottom: -7vw;
+    }    
+
+    .projectContent.selected {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        font-size: 0.8em;
+    }
+
+    .projectButton img {
+        height: 7vw;
+        width: 7vw;
     }
 
     .projectDesc, .projectFeats {
         max-width: 90%;
+        margin: 2vh 0;
     }
 
     .projectLinks a {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+
+    /* Responsive - Small screens - Transitions */
 
     .project-transition-enter {
         left: -200px;
@@ -655,12 +705,14 @@ a {
     
     .page-transition-enter.page-transition-enter-active {
         left: 0;
-        transition: 300ms ease-out;
+        transition: 200ms ease-out;
     }
 }
 
-/* Large screens */
+/* || Responsive - Large screens */
 @media only screen and (min-width: 600px) {
+    
+    /* Responsive - Large screens - Menu */
     .menuWrapper {
         top: 0;
         height: 100vh;
@@ -678,86 +730,131 @@ a {
     .menuWebButton {
         margin-top: 5rem;
     }
+    
+    /* Responsive - Large screens - Landing */
 
     .landingPresentationWrapper {
-        width: 100%;
-        height: 60%;
-        justify-content: space-around;
+        float: left;
+        padding: 0 5vw  0 10vw;
+        margin-top: 10vh;
+        margin-bottom: auto;
     }
 
-    .landingPresentationWrapper .paragraph {
-        max-width: 520px;
+    .profilePicWrapper {
+        float: right;
+        margin-top: 10vh;
+        margin-right: 10vw;
     }
+
     .landingLinksWrapper {
-        height: 40%;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        float: left;
+        clear: right;
+        margin: 15vh 0 5vh 0;
     }
+
+    /* Responsive - Large screens - Contact */
     .contactPageWrapper {
         justify-content: space-around;
     }
+    .contactTextWrapper, .contactLinksWrapper {
+        width: 50vw;
+    }
     .contactTextWrapper .paragraph {
-        width: 60%;
+        padding-right: 15vw;
     }
     .contactLinksWrapper {
-        width: 200%;
         margin-left: 2rem;
     }
     .contactLink, .landingLink {
-        width: 10rem;
-        height: 10rem;
+        width: 10vw;
+        height: 10vw;
+        min-width: 80px;
+        min-height: 80px;
     }
     .contactLink img {
-        width: 5rem;
+        width: 5vw;
+        min-width: 40px;
     }
     .landingLink img {
-        width: 5rem;
+        width: 5vw;
+        min-width: 40px;
     }
     .webLinks {
         width: 100%;
     }
     .otherLinks {
         width: 100%;
-        height: 25rem;
     }
     .otherLink {
         width: 70%;
         max-width: 600px;
-        padding: 1rem 4rem 1rem 2rem;
+        padding: 1vw 4vw 1vw 2vw;
+        margin-top: 3vh;
     }
     .otherLink img {
-        width: 4rem;
+        width: 4vw;
     }
     .otherLink .paragraph {
-        font-size: 1.2rem;
+        font-size: 1.4vw;
     }
 
+    /* Responsive - Large screens - Projects */
     .projectWrapper.unselected {
-        height: 25rem;
-        width: 25rem;
+        height: max(25vw, 320px);
+        width: max(25vw, 320px);
     }
     
     .projectWrapper.selected {
-        height: 50rem;
-        width: 50rem;
+        height: max(50vw, 1000px);
+        width: max(50vw, 600px);
     }
 
     .projectWrapper.smallSize {
-        height: 20rem;
-        width: 20rem;
+        height: max(15vw, 180px);
+        width: max(15vw, 180px);
     }
 
-    .projectDesc {
-        width: 22rem;
-    }
-    .projectFeats {
-        max-width: 22rem;
+    .projectTitle {
+        height: max(5vw, 50px);
+        line-height: 5vw;
     }
     
     .projectBanner {
-        height: 20rem;
+        height: max(20vw, 270px);
+    }
+
+    .projectContent {
+        margin-top: auto;
+    }
+
+    .projectDesc {
+        width: 30vw;
+        padding: 1vw 1vw 0 1vw;
+    }
+
+    .projectFeats {
+        max-width: 20vw;
     }
 
     .projectWrapper.smallSize .projectBanner {
-        height: 15rem;
+        height: max(10vw, 130px);
+    }
+    .projectWrapper.smallSize .projectButton {
+        width: 3vw;
+        height: 3vw;
+        line-height: max(3vw, 50px);
+        bottom: min(-1.5vw, -25px);
+        min-width: 50px;
+        min-height: 50px;
+    }
+    .projectWrapper.smallSize .projectButton img {
+        width: 1vw;
+        height: 1vw;
+        min-width: 25px;
+        min-height: 25px;
     }
 
     .project-transition-enter {
@@ -772,6 +869,7 @@ a {
         transition: all 250ms ease-out;
     }
 
+    /* Responsive - Large screens - Transitions */
     .page-transition-enter {
         opacity: 0;
     }
@@ -786,6 +884,7 @@ a {
     }
 }
 
+/* || Hover effects */
 @media (hover: hover) {
     
     .menuInfoButton:hover {
@@ -860,7 +959,7 @@ a {
 
 }
 
-/* Transitions - projects */
+/* || Transitions - projects */
 
 .project-secondary-transition-enter {
     visibility: hidden;
@@ -881,7 +980,7 @@ a {
     transition: 150ms ease;
 }
 
-/* Transitions - pages */
+/* || Transitions - pages */
 
 .page-transition-exit {
     z-index: 1;

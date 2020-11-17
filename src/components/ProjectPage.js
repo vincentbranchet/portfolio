@@ -44,6 +44,7 @@ class ProjectPage extends React.Component {
             feats={proj.feats}
             links={proj.links}
             img={proj.img}
+            isLogo={proj.isLogo}
             score={proj.score}
             primaryCategory={proj.primaryCategory}
             secondaryCategory={proj.secondaryCategory}

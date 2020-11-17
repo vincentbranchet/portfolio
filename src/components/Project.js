@@ -44,6 +44,7 @@ class Project extends React.Component {
     const imgName = this.props.img;
     const isSelected = this.props.isSelected;
     const isSmall = this.props.isSmall;
+    const isLogo = this.props.isLogo;
     const category = this.props.activeWith === "primary" ? this.props.primaryCategory : this.props.secondaryCategory;
     const feats = this.renderFeats(this.props.feats);
     const links = this.renderLinks(this.props.links, category);
@@ -66,7 +67,7 @@ class Project extends React.Component {
                             {title}
                         </div>
                         <div className="projectBanner">
-                            <img className="bannerImage" src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
+                            <img className={`bannerImage  ${isLogo ? "logo" : ""}`} src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
                         </div>
                         <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
                             <div className="projectDesc">

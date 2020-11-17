@@ -10,9 +10,9 @@ class LandingPage extends React.Component {
             <Paragraph
               text={this.props.text}
             />
-            <div className="profilePicWrapper">
-              <img src={`${process.env.PUBLIC_URL}/assets/img/profile.png`} />
-            </div>
+          </div>
+          <div className="profilePicWrapper">
+            <img src={`${process.env.PUBLIC_URL}/assets/img/profile.png`} />
           </div>
           <div className="landingLinksWrapper">
             <ExternalLink 
