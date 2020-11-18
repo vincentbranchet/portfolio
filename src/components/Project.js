@@ -62,11 +62,12 @@ class Project extends React.Component {
                     classNames={"project-secondary-transition"}
                     key={this.props.id + 100}
                 >
-                    <div className={`projectWrapper ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
+                    <div id={this.props.id} className={`projectWrapper category_${category} ${isSelected ? "selected" : "unselected"} ${isSmall ? "smallSize" : "normalSize"}`}>
                         <div className={`projectTitle category_${category}`}>
                             {title}
                         </div>
                         <div className="projectBanner">
+                            <div className="bannerOverlay"></div>
                             <img className={`bannerImage  ${isLogo ? "logo" : ""}`} src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
                         </div>
                         <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
@@ -81,7 +82,9 @@ class Project extends React.Component {
                             {links}
                         </div>
                         <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
-                            <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
+                            <a className="projectAnchor" href={`#${this.props.id}`}>
+                                <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
+                            </a>
                         </div>
                     </div>
                 </CSSTransition>
