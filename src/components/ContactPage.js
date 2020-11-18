@@ -15,7 +15,7 @@ class ContactPage extends React.Component {
                 className={"contactLink"}
                 href={this.props.links.linkedIn}
                 target={"_blank"}
-                text={<img src={`${process.env.PUBLIC_URL}/assets/img/linkedIn.png`} />}
+                text={<img src={`${process.env.PUBLIC_URL}/assets/img/linkedin.png`} />}
               />
               <ExternalLink 
                 className={"contactLink"}

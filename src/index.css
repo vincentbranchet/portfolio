@@ -57,6 +57,7 @@ a {
 .paragraph {
     color: var(--bg-default);
     max-width: 520px;
+    white-space: pre-line;
 }
 
 .landingPageWrapper, .contactPageWrapper, .projectPageWrapper {
@@ -523,6 +524,9 @@ a {
         padding-bottom: 6rem;
         height: auto;
     }
+    .landingPageWrapper, .contactPageWrapper {
+        padding-top: 1rem;
+    }
 
     /* Responsive - Small screens - Menu */
     .menuWrapper {
@@ -557,12 +561,13 @@ a {
         justify-content: space-around;
     }
     .landingPresentationWrapper {
-        margin-top: 7vh;
+        margin-top: 5rem;
         flex-direction: column;
         justify-content: space-evenly;
     }
     .landingPresentationWrapper .paragraph {
         font-size: 0.8rem;
+        padding-right: 5vw;
     }
 
     .landingPresentationWrapper, .landingLinksWrapper {
@@ -576,6 +581,9 @@ a {
     .profilePicWrapper img {
         width: 30vw;
         margin-top: 2vh;
+    }
+    .landingLinksWrapper {
+        margin-bottom: 1rem;
     }
     .landingLink {
         box-shadow: none;
@@ -645,6 +653,10 @@ a {
     }
     .contactLink:last-child .linkContent img {
         filter: invert(99%) sepia(0%) saturate(7500%) hue-rotate(229deg) brightness(101%) contrast(101%);
+    }
+
+    .otherLinks {
+        margin-bottom: 1rem;
     }
 
     .otherLink {
@@ -1029,20 +1041,20 @@ a {
 /* || Transitions - projects */
 
 .project-secondary-transition-enter {
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
 }
 .project-secondary-transition-enter-active {
-    visibility: visible;
+    visibility: hidden;
     opacity: 0;
     transition: 150ms ease;
 }
 .project-secondary-transition-exit {
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
 }
 .project-secondary-transition-exit-active {
-    visibility: visible;
+    visibility: hidden;
     opacity: 0;
     transition: 150ms ease;
 }
