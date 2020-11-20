@@ -71,7 +71,7 @@ a {
     width: 0.5rem;
 }
 .mainWrapper::-webkit-scrollbar-track {
-    background-color: var(--bg-submain);
+    background-color: var(--bg-white);
 }
 .mainWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
@@ -80,7 +80,7 @@ a {
     width: 0.5rem;
 }
 .projectPageWrapper::-webkit-scrollbar-track {
-    background-color: var(--bg-submain);
+    background-color: var(--bg-white);
 }
 .projectPageWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
@@ -89,7 +89,7 @@ a {
     width: 0.5rem;
 }
 .landingPageWrapper::-webkit-scrollbar-track {
-    background-color: var(--bg-submain);
+    background-color: var(--bg-white);
 }
 .landingPageWrapper::-webkit-scrollbar-thumb {
     background-color: var(--bg-main);
@@ -240,11 +240,7 @@ a {
     justify-content: space-around;
     align-items: center;
 }
-.landingLink {
-    background-color: var(--box-shadow);
-    box-shadow: 0px 0px 45px var(--white-shadow);
-    border-radius: 0.5rem;
-}
+
 .landingLink .linkContent {
     width: 100%;
     height: 100%;
@@ -256,6 +252,12 @@ a {
 }
 .landingLink:first-child .linkContent img {
     filter: invert(34%) sepia(43%) saturate(6655%) hue-rotate(182deg) brightness(88%) contrast(101%);
+}
+
+.landingLink, .contactLink {
+    background-color: var(--box-shadow);
+    box-shadow: 0px 0px 45px var(--white-shadow);
+    border-radius: 0.5rem;
 }
 
 /* || Contact */
@@ -270,11 +272,7 @@ a {
     justify-content: space-around;
     align-items: center;
 }
-.contactLink {
-    background-color: var(--box-shadow);
-    box-shadow: -2px 2px 2px var(--box-shadow);
-    border-radius: 1rem;
-}
+
 .contactLink:first-child .linkContent img {
     filter: invert(34%) sepia(43%) saturate(6655%) hue-rotate(182deg) brightness(88%) contrast(101%);
 }
@@ -284,8 +282,8 @@ a {
     height: 100%;
     position: relative;
     top: 0;
-    background-color: whitesmoke;
-    border-radius: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
     transition: 100ms ease;
 }
 
@@ -427,7 +425,8 @@ a {
     background-color: var(--bg-second-category);
 }
 .projectTitle.category_3 {
-    background-color: var(--bg-third-category);
+    background-color: var(--bg-default);
+    color: white;
 }
 
 .projectBanner {
@@ -730,16 +729,16 @@ a {
     }
 
     .otherLink {
-        width: 100%;
-        padding: 0.5rem 0 0.5rem 1rem;
+        width: 90vw;
+        padding: 1vw 10vw 1vw 1rem;
         margin: 0.5rem 0;
         border-radius: 0;
         box-shadow: none;
         margin-bottom: 10vw;
     }
     .otherLink img {
-        height: 2rem;
-        width: 2rem;
+        height: 10%;
+        width: 10%;
         margin-left: 10%;
     }
     .otherLink .paragraph {
@@ -747,6 +746,9 @@ a {
         height: 2rem;
         line-height: 2rem;
         font-weight: 600;
+        width: 90%;
+        word-wrap: wrap;
+        text-align: start;
     }
 
     /* Responsive - Small screens - Projects */
@@ -925,6 +927,7 @@ a {
     }
     .contactTextWrapper .paragraph {
         padding-right: 15vw;
+        max-width: 20vw;
     }
     .contactLinksWrapper {
         margin-left: 2rem;
