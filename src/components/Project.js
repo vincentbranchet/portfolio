@@ -14,7 +14,7 @@ class Project extends React.Component {
         if(Array.isArray(array)) {
             array.forEach((feat) => feats.push(
                 <li className="projectFeat">
-                    <img src={`${process.env.PUBLIC_URL}/assets/img/check-mark.png`} />
+                    <img src={`${process.env.PUBLIC_URL}/assets/img/check-mark.png`} alt="Symbole représant une case cochée." />
                     <span className="listTextWrapper">{feat}</span>
                 </li>));
         }
@@ -68,7 +68,7 @@ class Project extends React.Component {
                         </div>
                         <div className="projectBanner">
                             <div className="bannerOverlay"></div>
-                            <img className={`bannerImage  ${isLogo ? "logo" : ""}`} src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`}/>
+                            <img className={`bannerImage  ${isLogo ? "logo" : ""}`} src={`${process.env.PUBLIC_URL}/assets/img/${imgName}`} alt="Screenshot ou logo illustrant un projet professionnel de Vincent Branchet." />
                         </div>
                         <div className={`projectContent ${isSelected ? "selected" : "unselected"}`}>
                             <div className="projectDesc">
@@ -83,7 +83,7 @@ class Project extends React.Component {
                         </div>
                         <div className={`projectButton button category_${category}`} onClick={() => this.props.onClick(this.props.id)}>
                             <a className="projectAnchor" href={`#${this.props.id}`}>
-                                <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} />
+                                <img src={`${process.env.PUBLIC_URL}/assets/img/${isSelected ? "minus.png" : "plus.png"}`} alt={isSelected ? "Symbole d'un moins mathématique indiquant un bouton de fermeture." : "Symbole d'un plus mathématique indiquant un bouton d'ouverture."} />
                             </a>
                         </div>
                     </div>
