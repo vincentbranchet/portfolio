@@ -45,7 +45,8 @@
 html, body, #root, .mainWrapper {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    position: relative;
+    overflow-x: hidden;
     background-color: var(--bg-submain);
 }
 
@@ -64,6 +65,15 @@ a {
     position: relative;
 }
 
+.mainWrapper::-webkit-scrollbar{
+    width: 0.5rem;
+}
+.mainWrapper::-webkit-scrollbar-track {
+    background-color: var(--bg-submain);
+}
+.mainWrapper::-webkit-scrollbar-thumb {
+    background-color: var(--bg-main);
+}
 .projectPageWrapper::-webkit-scrollbar{
     width: 0.5rem;
 }
@@ -105,7 +115,6 @@ a {
 
 .pageWrapper {
     margin-left: 5rem;
-    height: 100vh;
     width: 100vw;
 }
 
@@ -167,9 +176,9 @@ a {
 
 /* || Landing page */
 .landingPageWrapper {
-    height: 100%;
     width: 100%;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 .landingPresentationWrapper .paragraph {
     padding-left: 15px;
@@ -205,7 +214,6 @@ a {
 
 /* || Contact */
 .contactPageWrapper {
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -319,15 +327,16 @@ a {
 
 /* || Projects  */
 .projectPageWrapper {
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .projectLine {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-around;
 }
@@ -379,6 +388,7 @@ a {
     background-color: white;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .bannerOverlay {
@@ -561,7 +571,7 @@ a {
         justify-content: space-around;
     }
     .landingPresentationWrapper {
-        margin-top: 5rem;
+        margin-top: 10vw;
         flex-direction: column;
         justify-content: space-evenly;
     }
@@ -583,7 +593,7 @@ a {
         margin-top: 2vh;
     }
     .landingLinksWrapper {
-        margin-bottom: 1rem;
+        margin-bottom: 6rem;
     }
     .landingLink {
         box-shadow: none;
@@ -615,8 +625,9 @@ a {
     .contactTextWrapper {
         max-width: 90%;
         font-size: 0.8rem;
-        margin-bottom: 1rem;
-        padding-right: 2.5rem;
+        margin-top: 20vw;
+        margin-bottom: 20vw;
+        padding-right: 10vw;
         
     }
     .contactLinksWrapper {
@@ -627,7 +638,7 @@ a {
         width: 100%;
     }
     .webLinks {
-        margin-bottom: 1rem;
+        margin-bottom: 20vw;
     }
 
     .contactLink {
@@ -656,7 +667,7 @@ a {
     }
 
     .otherLinks {
-        margin-bottom: 1rem;
+        margin-bottom: 6rem;
     }
 
     .otherLink {
@@ -665,6 +676,7 @@ a {
         margin: 0.5rem 0;
         border-radius: 0;
         box-shadow: none;
+        margin-bottom: 10vw;
     }
     .otherLink img {
         height: 2rem;
@@ -682,8 +694,11 @@ a {
     .projectPageWrapper {
         scroll-behavior: smooth;
     }
-    .projectPageWrapper:first-child {
-        padding-top: 1rem;
+    .projectLine:first-child {
+        margin-top: 1rem;
+    }
+    .projectLine:last-child {
+        margin-bottom: 6rem;
     }
 
     .projectWrapper {
@@ -832,6 +847,7 @@ a {
 
     /* Responsive - Large screens - Contact */
     .contactPageWrapper {
+        height: 100vh;
         justify-content: space-around;
     }
     .contactTextWrapper, .contactLinksWrapper {

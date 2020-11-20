@@ -101,9 +101,12 @@ class App extends React.Component {
       const menuButtons = this.state.menuButtons.slice(0, this.state.menuButtons.length);
       const currentKey = location.pathname; // page pathname from withRouter context used to trigger page transitions
       const direction = this.getPosition(location) > this.state.prevPosition ? "right" : "left";
+      const pageStyle = {
+        height: this.state.screenHeight,
+      };
   
       return (
-        <div className="mainWrapper">
+        <div className="mainWrapper" style={pageStyle}>
           <Menu 
             onClick={(id) => this.handleClickOnMenuButton(id)}
             category={activeCategory}
@@ -144,6 +147,8 @@ class App extends React.Component {
                     path="/projets" 
                     render={(...props) => (
                         <ProjectPage {...props}
+                        screenHeight={this.state.screenHeight}
+                        screenWidth={this.state.screenWidth}
                         direction={direction}
                         category={this.state.category}
                         projects={this.state.projects}

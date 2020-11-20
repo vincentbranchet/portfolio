@@ -72,11 +72,11 @@ class ProjectPage extends React.Component {
       
       for(let i = 0; i < yRange; i++) {
         const line = this.renderProjectLineOf(projects, (firstInLine + xRange), firstInLine);
-  
+
         rendered.push(
           <div key={i} className={`projectLine`}>{line}</div>
         );
-  
+
         firstInLine += xRange;
       }
   
