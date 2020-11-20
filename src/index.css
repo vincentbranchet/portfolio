@@ -395,6 +395,7 @@ a {
     border: 1px solid;
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: white;
+    box-shadow: 0px 0px 25px var(--white-shadow);
     transition: 300ms ease;
 }
 
@@ -540,6 +541,7 @@ a {
     position: absolute;
     bottom: -2.5vw;
     background-color: white;
+    box-shadow: 0px 10px 25px var(--white-shadow);
     line-height: 5vw;
     text-align: center;
     transition: background-color 200ms ease;
@@ -648,6 +650,7 @@ a {
     }
     .profilePicWrapper img {
         width: 30vw;
+        height: 30vw;
         margin-top: 2vh;
     }
     .landingLinksWrapper {
@@ -917,6 +920,9 @@ a {
         margin: 15vh 0 5vh 0;
     }
 
+    .landingLink .linkContent, .contactLink .linkContent {
+        border: 1px solid var(--white-shadow);
+    }
     /* Responsive - Large screens - Contact */
     .contactPageWrapper {
         height: 100vh;
