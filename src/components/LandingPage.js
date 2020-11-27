@@ -12,7 +12,7 @@ class LandingPage extends React.Component {
             </div>
             <div className="gamesPresWrapper">
               <img className="gamesPresLogo" src={`${process.env.PUBLIC_URL}/assets/img/gamepad.png`} alt="Logo d'une manette de jeu vidéo représentant la création de jeux." />
-              <div>Narrative & game design</div>
+              <div>Narrative design</div>
             </div>
             <div className="litPresWrapper">
               <img className="litPresLogo" src={`${process.env.PUBLIC_URL}/assets/img/quill.png`} alt="Logo d'une plume représentant l'activité d'écrire." />
