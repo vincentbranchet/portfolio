@@ -63,7 +63,7 @@ class ProjectStore extends EventEmitter {
               url: " https://www.4cidproductions.com/"
             }
           ],
-          img: "",
+          img: "happy_little_humans.png",
           isLogo: false,
           score: 100,
           primaryCategory: 1,
