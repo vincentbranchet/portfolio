@@ -43,8 +43,8 @@ class ProjectStore extends EventEmitter {
         },
         {
           id: 2,
-          title: "Lazy Little Humans",
-          desc: "Prototype web d'un jeu mobile, développé à des fins de démarchage d'éditeurs. Lazy Little Humans est un jeu mobile dans lequel vous incarnez un algorithme chargé d'envoyer des recommandations aux gens. J'ai développé l'application en deux mois, après plusieurs mois de travail de pré-production en tant lead game designer et narrative designer. L'équipe comportait également un producteur (4Cid Productions), un auteur et un graphiste (qui n'a pas travaillé sur ce prototype).",
+          title: "Happy Little Humans",
+          desc: "Prototype web d'un jeu mobile, développé à des fins de démarchage d'éditeurs. Happy Little Humans est un jeu mobile dans lequel vous incarnez un algorithme qui envoie des notifications aux gens, et fait face à des conséquences inattendues. J'ai développé l'application en trois mois, après plusieurs mois de travail de pré-production en tant lead game designer et narrative designer. L'équipe comportait également un producteur (4Cid Productions), un auteur et un graphiste (qui n'a pas travaillé sur ce prototype).",
           feats: [
             "Javascript ES6, jQuery, HTML, CSS",
             "Responsive design",
@@ -56,7 +56,7 @@ class ProjectStore extends EventEmitter {
           links: [
             {
               text: "Jouer (mobile friendly)",
-              url: "http://lazylittlehumans.com"
+              url: "http://happylittlehumans-game.com/fr/game.html"
             },
             {
               text: "4Cid",
